@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [                      // ← Add this block
+            'driver' => 'passport',
+            'provider' => 'users',
+        ],
     ],
 
     /*
