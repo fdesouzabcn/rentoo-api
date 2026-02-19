@@ -5,15 +5,21 @@ declare(strict_types=1);
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Property;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, HasUuids, Notifiable;
+
+    //The DB table used for auth, points to 'onwners' instead of default 'users'
+    protected $table ='owners';
 
     /**
      * The attributes that are mass assignable.
@@ -22,7 +28,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'dni',
         'email',
+        'phone',
+        'address',
+        'city',
+        'postal_code',
+        'province',
         'password',
     ];
 
@@ -39,13 +51,21 @@ class User extends Authenticatable
     /**
      * Get the attributes that should be cast.
      *
-     * @return array<string, string>
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+     // Defines one-to-many relationship: One Owner → Many Properties
+    public function properties(): HasMany
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Property::class, 'owner_id');
+    }
+
+    // Automatically uppercase DNIs regardless of input format.
+    public function setDniAttribute(?string $value): void
+    {
+        $this->attributes['dni'] = $value ? strtoupper($value) : null;
     }
 }
