@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,21 +26,37 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'name'          => fake()->name(),
+            'dni'           => $this->generateSpanishDNI(),
+            'email'         => fake()->unique()->safeEmail(),
+            'phone'         => $this->generateSpanishPhone(),
+            'address'       => fake()->streetAddress(),
+            'city'          => fake()->randomElement(['Barcelona', 'Badalona', 'Sabadell', 'Terrassa']),
+            'postal_code'   => $this->generateBarcelonaPostalCode(),
+            'province'      => 'Barcelona',
+            'password'      => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
         ];
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
+    private function generateSpanishDNI(): string
     {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
+        $number = fake()->numberBetween(10000000, 99999999);
+        $letters = 'TRWAGMYFPDXBNJZSQVHLCKE';
+        $letter = $letters[fake()->numberBetween(0, 22)];
+        return $number . $letter;
+    }
+
+    private function generateSpanishPhone(): string
+    {
+        return '+34 ' . fake()->numberBetween(600, 699) . ' '
+            . fake()->numberBetween(100, 999) . ' '
+            . fake()->numberBetween(100, 999);
+    }
+
+    private function generateBarcelonaPostalCode(): string
+    {
+        $number = fake()->numberBetween(8001, 8999);
+        return str_pad((string) $number, 5, '0', STR_PAD_LEFT);
     }
 }
