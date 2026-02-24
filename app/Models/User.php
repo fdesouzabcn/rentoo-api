@@ -12,11 +12,12 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Property;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasApiTokens, HasFactory, HasUuids, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, HasUuids, Notifiable, HasRoles, SoftDeletes;
 
     //The DB table used for auth, points to 'onwners' instead of default 'users'
     protected $table ='owners';
