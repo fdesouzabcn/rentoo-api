@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 // use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\PropertyController;
 use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,13 @@ Route::prefix('v1')->group(function (): void {
         Route::get('/users',           [UserController::class, 'index']);
         Route::get('/users/{uuid}',    [UserController::class, 'show']);
         Route::delete('/users/{uuid}', [UserController::class, 'destroy']);
+
+        // Property endpoints
+        Route::post('/properties',          [PropertyController::class, 'store']);
+        Route::get('/properties',           [PropertyController::class, 'index']);
+        Route::get('/properties/{uuid}',    [PropertyController::class, 'show']);
+        Route::put('/properties/{uuid}',    [PropertyController::class, 'update']);
+        Route::delete('/properties/{uuid}', [PropertyController::class, 'destroy']);
     });
 
 });
