@@ -1,0 +1,795 @@
+name: Contracts
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/contracts
+    metadata:
+      custom: []
+      groupName: Contracts
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new contract.'
+      description: |-
+        Creates a contract for a given property. Admins can create contracts
+        on any property. Regular users can only create contracts on their own properties.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      property_id:
+        custom: []
+        name: property_id
+        description: 'UUID of the property.'
+        required: true
+        example: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Contract status: draft, active, or finalized.'
+        required: true
+        example: draft
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      start_date:
+        custom: []
+        name: start_date
+        description: 'Contract start date (Y-m-d). Must be today or later.'
+        required: true
+        example: '2026-03-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      end_date:
+        custom: []
+        name: end_date
+        description: 'optional Contract end date (Y-m-d). Must be after start_date.'
+        required: false
+        example: '2027-03-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      monthly_rent:
+        custom: []
+        name: monthly_rent
+        description: 'Monthly rent amount in €.'
+        required: true
+        example: 1200.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      legal_deposit:
+        custom: []
+        name: legal_deposit
+        description: 'Legal deposit amount in €.'
+        required: true
+        example: 1200.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      additional_deposit:
+        custom: []
+        name: additional_deposit
+        description: 'optional Additional deposit in €.'
+        required: false
+        example: 1200.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      tenant_pays_ibi:
+        custom: []
+        name: tenant_pays_ibi
+        description: 'optional Whether tenant pays IBI.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant_pays_community_fees:
+        custom: []
+        name: tenant_pays_community_fees
+        description: 'optional Whether tenant pays community fees.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant_pays_garbage_fees:
+        custom: []
+        name: tenant_pays_garbage_fees
+        description: 'optional Whether tenant pays garbage fees.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      irpa_value:
+        custom: []
+        name: irpa_value
+        description: 'optional IRPA reference value.'
+        required: false
+        example: 1260.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      is_tensioned_area:
+        custom: []
+        name: is_tensioned_area
+        description: 'optional Whether property is in a tensioned housing area.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant1_name:
+        custom: []
+        name: tenant1_name
+        description: 'Primary tenant full name.'
+        required: true
+        example: 'Joan Puigdemon'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant1_dni:
+        custom: []
+        name: tenant1_dni
+        description: 'Primary tenant Spanish DNI/NIE.'
+        required: true
+        example: 12345678A
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant1_email:
+        custom: []
+        name: tenant1_email
+        description: 'Primary tenant email.'
+        required: true
+        example: '"joan@rentoo.com"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant1_phone:
+        custom: []
+        name: tenant1_phone
+        description: 'Primary tenant phone.'
+        required: true
+        example: '600111222'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant2_name:
+        custom: []
+        name: tenant2_name
+        description: 'optional Secondary tenant full name.'
+        required: false
+        example: 'Maria Garcia'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      tenant2_dni:
+        custom: []
+        name: tenant2_dni
+        description: 'optional Secondary tenant Spanish DNI/NIE.'
+        required: false
+        example: 87654321B
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      tenant2_email:
+        custom: []
+        name: tenant2_email
+        description: 'optional Secondary tenant email.'
+        required: false
+        example: 'maria@rentoo.com"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      tenant2_phone:
+        custom: []
+        name: tenant2_phone
+        description: 'optional Secondary tenant phone.'
+        required: false
+        example: '600222333'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      property_id: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+      status: draft
+      start_date: '2026-03-01'
+      end_date: '2027-03-01'
+      monthly_rent: 1200.0
+      legal_deposit: 1200.0
+      additional_deposit: 1200.0
+      tenant_pays_ibi: false
+      tenant_pays_community_fees: false
+      tenant_pays_garbage_fees: false
+      irpa_value: 1260.0
+      is_tensioned_area: false
+      tenant1_name: 'Joan Puigdemon'
+      tenant1_dni: 12345678A
+      tenant1_email: '"joan@rentoo.com"'
+      tenant1_phone: '600111222'
+      tenant2_name: 'Maria Garcia'
+      tenant2_dni: 87654321B
+      tenant2_email: 'maria@rentoo.com"'
+      tenant2_phone: '600222333'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: '{"data": {"id": "uuid", "property_id": "uuid", "status": "draft"}}'
+        headers: []
+        description: success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Unauthenticated."}'
+        headers: []
+        description: unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Forbidden"}'
+        headers: []
+        description: forbidden
+      -
+        custom: []
+        status: 422
+        content: '{"message": "The property_id field is required.", "errors": {}}'
+        headers: []
+        description: 'validation error'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/contracts
+    metadata:
+      custom: []
+      groupName: Contracts
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all contracts.'
+      description: |-
+        Admins see all contracts. Regular users only see contracts
+        that belong to properties they own.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [{"id": "uuid", "property_id": "uuid", "status": "draft", "monthly_rent": "1200.00"}]
+          }
+        headers: []
+        description: 'admin success'
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Unauthenticated."}'
+        headers: []
+        description: unauthenticated
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/v1/contracts/{uuid}'
+    metadata:
+      custom: []
+      groupName: Contracts
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show a specific contract.'
+      description: |-
+        Admins can view any contract. Regular users can only view contracts
+        on properties they own.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      uuid:
+        custom: []
+        name: uuid
+        description: 'The UUID of the contract.'
+        required: true
+        example: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      uuid: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data": {"id": "uuid", "property_id": "uuid", "status": "draft"}}'
+        headers: []
+        description: success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Unauthenticated."}'
+        headers: []
+        description: unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Forbidden"}'
+        headers: []
+        description: forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Contract not found"}'
+        headers: []
+        description: 'not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/v1/contracts/{uuid}'
+    metadata:
+      custom: []
+      groupName: Contracts
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update a contract.'
+      description: |-
+        Full update (PUT) of a contract. Admins can update any contract.
+        Regular users can only update contracts on their own properties.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      uuid:
+        custom: []
+        name: uuid
+        description: 'The UUID of the contract.'
+        required: true
+        example: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      uuid: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      property_id:
+        custom: []
+        name: property_id
+        description: 'UUID of the property.'
+        required: true
+        example: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: 'Contract status: draft, active, or finalized.'
+        required: true
+        example: active
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      start_date:
+        custom: []
+        name: start_date
+        description: 'Contract start date (Y-m-d).'
+        required: true
+        example: '2026-03-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      end_date:
+        custom: []
+        name: end_date
+        description: 'optional Contract end date (Y-m-d).'
+        required: false
+        example: '2027-03-01'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      monthly_rent:
+        custom: []
+        name: monthly_rent
+        description: 'Monthly rent amount in €.'
+        required: true
+        example: 1400.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      legal_deposit:
+        custom: []
+        name: legal_deposit
+        description: 'Legal deposit in €.'
+        required: true
+        example: 1400.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      additional_deposit:
+        custom: []
+        name: additional_deposit
+        description: 'Must be at least 0. Must not be greater than 999999.99.'
+        required: false
+        example: 16
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tenant_pays_ibi:
+        custom: []
+        name: tenant_pays_ibi
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      tenant_pays_community_fees:
+        custom: []
+        name: tenant_pays_community_fees
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      tenant_pays_garbage_fees:
+        custom: []
+        name: tenant_pays_garbage_fees
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      irpa_value:
+        custom: []
+        name: irpa_value
+        description: 'Must be at least 0. Must not be greater than 999999.99.'
+        required: false
+        example: 17
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_tensioned_area:
+        custom: []
+        name: is_tensioned_area
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      tenant1_name:
+        custom: []
+        name: tenant1_name
+        description: 'Primary tenant full name.'
+        required: true
+        example: 'Joan Puigdemon'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant1_dni:
+        custom: []
+        name: tenant1_dni
+        description: 'Primary tenant DNI.'
+        required: true
+        example: 12345678A
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant1_email:
+        custom: []
+        name: tenant1_email
+        description: 'Primary tenant email.'
+        required: true
+        example: joan@rentoo.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant1_phone:
+        custom: []
+        name: tenant1_phone
+        description: 'Primary tenant phone.'
+        required: true
+        example: '600111222'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      tenant2_name:
+        custom: []
+        name: tenant2_name
+        description: 'Must not be greater than 100 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tenant2_dni:
+        custom: []
+        name: tenant2_dni
+        description: 'Must match the regex /^([0-9]{8}.'
+        required: false
+        example: (56425593
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tenant2_email:
+        custom: []
+        name: tenant2_email
+        description: 'Must be a valid email address. Must not be greater than 100 characters.'
+        required: false
+        example: lafayette.considine@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      tenant2_phone:
+        custom: []
+        name: tenant2_phone
+        description: 'Must not be greater than 20 characters.'
+        required: false
+        example: aykcmyuwpwlvqwrs
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      property_id: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+      status: active
+      start_date: '2026-03-01'
+      end_date: '2027-03-01'
+      monthly_rent: 1400.0
+      legal_deposit: 1400.0
+      additional_deposit: 16
+      tenant_pays_ibi: false
+      tenant_pays_community_fees: false
+      tenant_pays_garbage_fees: true
+      irpa_value: 17
+      is_tensioned_area: true
+      tenant1_name: 'Joan Puigdemon'
+      tenant1_dni: 12345678A
+      tenant1_email: joan@rentoo.com
+      tenant1_phone: '600111222'
+      tenant2_name: i
+      tenant2_dni: (56425593
+      tenant2_email: lafayette.considine@example.com
+      tenant2_phone: aykcmyuwpwlvqwrs
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data": {"id": "uuid", "monthly_rent": "1400.00"}}'
+        headers: []
+        description: success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Unauthenticated."}'
+        headers: []
+        description: unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Forbidden"}'
+        headers: []
+        description: forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Contract not found"}'
+        headers: []
+        description: 'not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/contracts/{uuid}'
+    metadata:
+      custom: []
+      groupName: Contracts
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete a contract (soft delete).'
+      description: |-
+        Soft deletes a contract. Admins can delete any contract.
+        Regular users can only delete contracts on their own properties.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      uuid:
+        custom: []
+        name: uuid
+        description: 'The UUID of the contract.'
+        required: true
+        example: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      uuid: 9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 204
+        content: ''
+        headers: []
+        description: success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Unauthenticated."}'
+        headers: []
+        description: unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Forbidden"}'
+        headers: []
+        description: forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Contract not found"}'
+        headers: []
+        description: 'not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

@@ -82,6 +82,28 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-contracts" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="contracts">
+                    <a href="#contracts">Contracts</a>
+                </li>
+                                    <ul id="tocify-subheader-contracts" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="contracts-POSTapi-v1-contracts">
+                                <a href="#contracts-POSTapi-v1-contracts">Create a new contract.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="contracts-GETapi-v1-contracts">
+                                <a href="#contracts-GETapi-v1-contracts">List all contracts.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="contracts-GETapi-v1-contracts--uuid-">
+                                <a href="#contracts-GETapi-v1-contracts--uuid-">Show a specific contract.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="contracts-PUTapi-v1-contracts--uuid-">
+                                <a href="#contracts-PUTapi-v1-contracts--uuid-">Update a contract.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="contracts-DELETEapi-v1-contracts--uuid-">
+                                <a href="#contracts-DELETEapi-v1-contracts--uuid-">Delete a contract (soft delete).</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-properties" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="properties">
                     <a href="#properties">Properties</a>
@@ -129,7 +151,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 25, 2026</li>
+        <li>Last updated: February 27, 2026</li>
     </ul>
 </div>
 
@@ -750,6 +772,1443 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                <h1 id="contracts">Contracts</h1>
+
+    
+
+                                <h2 id="contracts-POSTapi-v1-contracts">Create a new contract.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Creates a contract for a given property. Admins can create contracts
+on any property. Regular users can only create contracts on their own properties.</p>
+
+<span id="example-requests-POSTapi-v1-contracts">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/contracts" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"property_id\": \"9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e\",
+    \"status\": \"draft\",
+    \"start_date\": \"2026-03-01\",
+    \"end_date\": \"2027-03-01\",
+    \"monthly_rent\": 1200,
+    \"legal_deposit\": 1200,
+    \"additional_deposit\": 1200,
+    \"tenant_pays_ibi\": false,
+    \"tenant_pays_community_fees\": false,
+    \"tenant_pays_garbage_fees\": false,
+    \"irpa_value\": 1260,
+    \"is_tensioned_area\": false,
+    \"tenant1_name\": \"Joan Puigdemon\",
+    \"tenant1_dni\": \"12345678A\",
+    \"tenant1_email\": \"\\\"joan@rentoo.com\\\"\",
+    \"tenant1_phone\": \"600111222\",
+    \"tenant2_name\": \"Maria Garcia\",
+    \"tenant2_dni\": \"87654321B\",
+    \"tenant2_email\": \"maria@rentoo.com\\\"\",
+    \"tenant2_phone\": \"600222333\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/contracts"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "property_id": "9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e",
+    "status": "draft",
+    "start_date": "2026-03-01",
+    "end_date": "2027-03-01",
+    "monthly_rent": 1200,
+    "legal_deposit": 1200,
+    "additional_deposit": 1200,
+    "tenant_pays_ibi": false,
+    "tenant_pays_community_fees": false,
+    "tenant_pays_garbage_fees": false,
+    "irpa_value": 1260,
+    "is_tensioned_area": false,
+    "tenant1_name": "Joan Puigdemon",
+    "tenant1_dni": "12345678A",
+    "tenant1_email": "\"joan@rentoo.com\"",
+    "tenant1_phone": "600111222",
+    "tenant2_name": "Maria Garcia",
+    "tenant2_dni": "87654321B",
+    "tenant2_email": "maria@rentoo.com\"",
+    "tenant2_phone": "600222333"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-contracts">
+            <blockquote>
+            <p>Example response (201, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;uuid&quot;,
+        &quot;property_id&quot;: &quot;uuid&quot;,
+        &quot;status&quot;: &quot;draft&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, validation error):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The property_id field is required.&quot;,
+    &quot;errors&quot;: {}
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-contracts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-contracts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-contracts"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-contracts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-contracts">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-contracts" data-method="POST"
+      data-path="api/v1/contracts"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-contracts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-contracts"
+                    onclick="tryItOut('POSTapi-v1-contracts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-contracts"
+                    onclick="cancelTryOut('POSTapi-v1-contracts');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-contracts"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/contracts</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-contracts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-contracts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>property_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="property_id"                data-endpoint="POSTapi-v1-contracts"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="body">
+    <br>
+<p>UUID of the property. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="POSTapi-v1-contracts"
+               value="draft"
+               data-component="body">
+    <br>
+<p>Contract status: draft, active, or finalized. Example: <code>draft</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>date</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="POSTapi-v1-contracts"
+               value="2026-03-01"
+               data-component="body">
+    <br>
+<p>Contract start date (Y-m-d). Must be today or later. Example: <code>2026-03-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>date</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="POSTapi-v1-contracts"
+               value="2027-03-01"
+               data-component="body">
+    <br>
+<p>optional Contract end date (Y-m-d). Must be after start_date. Example: <code>2027-03-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>monthly_rent</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="monthly_rent"                data-endpoint="POSTapi-v1-contracts"
+               value="1200"
+               data-component="body">
+    <br>
+<p>Monthly rent amount in €. Example: <code>1200</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>legal_deposit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="legal_deposit"                data-endpoint="POSTapi-v1-contracts"
+               value="1200"
+               data-component="body">
+    <br>
+<p>Legal deposit amount in €. Example: <code>1200</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>additional_deposit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="additional_deposit"                data-endpoint="POSTapi-v1-contracts"
+               value="1200"
+               data-component="body">
+    <br>
+<p>optional Additional deposit in €. Example: <code>1200</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant_pays_ibi</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-v1-contracts" style="display: none">
+            <input type="radio" name="tenant_pays_ibi"
+                   value="true"
+                   data-endpoint="POSTapi-v1-contracts"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-v1-contracts" style="display: none">
+            <input type="radio" name="tenant_pays_ibi"
+                   value="false"
+                   data-endpoint="POSTapi-v1-contracts"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>optional Whether tenant pays IBI. Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant_pays_community_fees</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-v1-contracts" style="display: none">
+            <input type="radio" name="tenant_pays_community_fees"
+                   value="true"
+                   data-endpoint="POSTapi-v1-contracts"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-v1-contracts" style="display: none">
+            <input type="radio" name="tenant_pays_community_fees"
+                   value="false"
+                   data-endpoint="POSTapi-v1-contracts"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>optional Whether tenant pays community fees. Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant_pays_garbage_fees</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-v1-contracts" style="display: none">
+            <input type="radio" name="tenant_pays_garbage_fees"
+                   value="true"
+                   data-endpoint="POSTapi-v1-contracts"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-v1-contracts" style="display: none">
+            <input type="radio" name="tenant_pays_garbage_fees"
+                   value="false"
+                   data-endpoint="POSTapi-v1-contracts"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>optional Whether tenant pays garbage fees. Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>irpa_value</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="irpa_value"                data-endpoint="POSTapi-v1-contracts"
+               value="1260"
+               data-component="body">
+    <br>
+<p>optional IRPA reference value. Example: <code>1260</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_tensioned_area</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-v1-contracts" style="display: none">
+            <input type="radio" name="is_tensioned_area"
+                   value="true"
+                   data-endpoint="POSTapi-v1-contracts"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-v1-contracts" style="display: none">
+            <input type="radio" name="is_tensioned_area"
+                   value="false"
+                   data-endpoint="POSTapi-v1-contracts"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>optional Whether property is in a tensioned housing area. Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant1_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant1_name"                data-endpoint="POSTapi-v1-contracts"
+               value="Joan Puigdemon"
+               data-component="body">
+    <br>
+<p>Primary tenant full name. Example: <code>Joan Puigdemon</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant1_dni</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant1_dni"                data-endpoint="POSTapi-v1-contracts"
+               value="12345678A"
+               data-component="body">
+    <br>
+<p>Primary tenant Spanish DNI/NIE. Example: <code>12345678A</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant1_email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant1_email"                data-endpoint="POSTapi-v1-contracts"
+               value=""joan@rentoo.com""
+               data-component="body">
+    <br>
+<p>Primary tenant email. Example: <code>"joan@rentoo.com"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant1_phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant1_phone"                data-endpoint="POSTapi-v1-contracts"
+               value="600111222"
+               data-component="body">
+    <br>
+<p>Primary tenant phone. Example: <code>600111222</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant2_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant2_name"                data-endpoint="POSTapi-v1-contracts"
+               value="Maria Garcia"
+               data-component="body">
+    <br>
+<p>optional Secondary tenant full name. Example: <code>Maria Garcia</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant2_dni</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant2_dni"                data-endpoint="POSTapi-v1-contracts"
+               value="87654321B"
+               data-component="body">
+    <br>
+<p>optional Secondary tenant Spanish DNI/NIE. Example: <code>87654321B</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant2_email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant2_email"                data-endpoint="POSTapi-v1-contracts"
+               value="maria@rentoo.com""
+               data-component="body">
+    <br>
+<p>optional Secondary tenant email. Example: <code>maria@rentoo.com"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant2_phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant2_phone"                data-endpoint="POSTapi-v1-contracts"
+               value="600222333"
+               data-component="body">
+    <br>
+<p>optional Secondary tenant phone. Example: <code>600222333</code></p>
+        </div>
+        </form>
+
+                    <h2 id="contracts-GETapi-v1-contracts">List all contracts.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Admins see all contracts. Regular users only see contracts
+that belong to properties they own.</p>
+
+<span id="example-requests-GETapi-v1-contracts">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/contracts" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/contracts"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-contracts">
+            <blockquote>
+            <p>Example response (200, admin success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;uuid&quot;,
+            &quot;property_id&quot;: &quot;uuid&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;monthly_rent&quot;: &quot;1200.00&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-contracts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-contracts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-contracts"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-contracts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-contracts">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-contracts" data-method="GET"
+      data-path="api/v1/contracts"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-contracts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-contracts"
+                    onclick="tryItOut('GETapi-v1-contracts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-contracts"
+                    onclick="cancelTryOut('GETapi-v1-contracts');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-contracts"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/contracts</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-contracts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-contracts"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="contracts-GETapi-v1-contracts--uuid-">Show a specific contract.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Admins can view any contract. Regular users can only view contracts
+on properties they own.</p>
+
+<span id="example-requests-GETapi-v1-contracts--uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-contracts--uuid-">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;uuid&quot;,
+        &quot;property_id&quot;: &quot;uuid&quot;,
+        &quot;status&quot;: &quot;draft&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Contract not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-contracts--uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-contracts--uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-contracts--uuid-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-contracts--uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-contracts--uuid-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-contracts--uuid-" data-method="GET"
+      data-path="api/v1/contracts/{uuid}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-contracts--uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-contracts--uuid-"
+                    onclick="tryItOut('GETapi-v1-contracts--uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-contracts--uuid-"
+                    onclick="cancelTryOut('GETapi-v1-contracts--uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-contracts--uuid-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/contracts/{uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-contracts--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-contracts--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="uuid"                data-endpoint="GETapi-v1-contracts--uuid-"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="url">
+    <br>
+<p>The UUID of the contract. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="contracts-PUTapi-v1-contracts--uuid-">Update a contract.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Full update (PUT) of a contract. Admins can update any contract.
+Regular users can only update contracts on their own properties.</p>
+
+<span id="example-requests-PUTapi-v1-contracts--uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"property_id\": \"9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e\",
+    \"status\": \"active\",
+    \"start_date\": \"2026-03-01\",
+    \"end_date\": \"2027-03-01\",
+    \"monthly_rent\": 1400,
+    \"legal_deposit\": 1400,
+    \"additional_deposit\": 16,
+    \"tenant_pays_ibi\": false,
+    \"tenant_pays_community_fees\": false,
+    \"tenant_pays_garbage_fees\": true,
+    \"irpa_value\": 17,
+    \"is_tensioned_area\": true,
+    \"tenant1_name\": \"Joan Puigdemon\",
+    \"tenant1_dni\": \"12345678A\",
+    \"tenant1_email\": \"joan@rentoo.com\",
+    \"tenant1_phone\": \"600111222\",
+    \"tenant2_name\": \"i\",
+    \"tenant2_dni\": \"(56425593\",
+    \"tenant2_email\": \"lafayette.considine@example.com\",
+    \"tenant2_phone\": \"aykcmyuwpwlvqwrs\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "property_id": "9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e",
+    "status": "active",
+    "start_date": "2026-03-01",
+    "end_date": "2027-03-01",
+    "monthly_rent": 1400,
+    "legal_deposit": 1400,
+    "additional_deposit": 16,
+    "tenant_pays_ibi": false,
+    "tenant_pays_community_fees": false,
+    "tenant_pays_garbage_fees": true,
+    "irpa_value": 17,
+    "is_tensioned_area": true,
+    "tenant1_name": "Joan Puigdemon",
+    "tenant1_dni": "12345678A",
+    "tenant1_email": "joan@rentoo.com",
+    "tenant1_phone": "600111222",
+    "tenant2_name": "i",
+    "tenant2_dni": "(56425593",
+    "tenant2_email": "lafayette.considine@example.com",
+    "tenant2_phone": "aykcmyuwpwlvqwrs"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-contracts--uuid-">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;uuid&quot;,
+        &quot;monthly_rent&quot;: &quot;1400.00&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Contract not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-contracts--uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-contracts--uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-contracts--uuid-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-contracts--uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-contracts--uuid-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-contracts--uuid-" data-method="PUT"
+      data-path="api/v1/contracts/{uuid}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-contracts--uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-contracts--uuid-"
+                    onclick="tryItOut('PUTapi-v1-contracts--uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-contracts--uuid-"
+                    onclick="cancelTryOut('PUTapi-v1-contracts--uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-contracts--uuid-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/contracts/{uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="uuid"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="url">
+    <br>
+<p>The UUID of the contract. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>property_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="property_id"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="body">
+    <br>
+<p>UUID of the property. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="active"
+               data-component="body">
+    <br>
+<p>Contract status: draft, active, or finalized. Example: <code>active</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>date</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="2026-03-01"
+               data-component="body">
+    <br>
+<p>Contract start date (Y-m-d). Example: <code>2026-03-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>date</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="2027-03-01"
+               data-component="body">
+    <br>
+<p>optional Contract end date (Y-m-d). Example: <code>2027-03-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>monthly_rent</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="monthly_rent"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="1400"
+               data-component="body">
+    <br>
+<p>Monthly rent amount in €. Example: <code>1400</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>legal_deposit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="legal_deposit"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="1400"
+               data-component="body">
+    <br>
+<p>Legal deposit in €. Example: <code>1400</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>additional_deposit</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="additional_deposit"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="16"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Must not be greater than 999999.99. Example: <code>16</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant_pays_ibi</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-v1-contracts--uuid-" style="display: none">
+            <input type="radio" name="tenant_pays_ibi"
+                   value="true"
+                   data-endpoint="PUTapi-v1-contracts--uuid-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-v1-contracts--uuid-" style="display: none">
+            <input type="radio" name="tenant_pays_ibi"
+                   value="false"
+                   data-endpoint="PUTapi-v1-contracts--uuid-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant_pays_community_fees</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-v1-contracts--uuid-" style="display: none">
+            <input type="radio" name="tenant_pays_community_fees"
+                   value="true"
+                   data-endpoint="PUTapi-v1-contracts--uuid-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-v1-contracts--uuid-" style="display: none">
+            <input type="radio" name="tenant_pays_community_fees"
+                   value="false"
+                   data-endpoint="PUTapi-v1-contracts--uuid-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant_pays_garbage_fees</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-v1-contracts--uuid-" style="display: none">
+            <input type="radio" name="tenant_pays_garbage_fees"
+                   value="true"
+                   data-endpoint="PUTapi-v1-contracts--uuid-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-v1-contracts--uuid-" style="display: none">
+            <input type="radio" name="tenant_pays_garbage_fees"
+                   value="false"
+                   data-endpoint="PUTapi-v1-contracts--uuid-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>irpa_value</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="irpa_value"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="17"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Must not be greater than 999999.99. Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_tensioned_area</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-v1-contracts--uuid-" style="display: none">
+            <input type="radio" name="is_tensioned_area"
+                   value="true"
+                   data-endpoint="PUTapi-v1-contracts--uuid-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-v1-contracts--uuid-" style="display: none">
+            <input type="radio" name="is_tensioned_area"
+                   value="false"
+                   data-endpoint="PUTapi-v1-contracts--uuid-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant1_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant1_name"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="Joan Puigdemon"
+               data-component="body">
+    <br>
+<p>Primary tenant full name. Example: <code>Joan Puigdemon</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant1_dni</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant1_dni"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="12345678A"
+               data-component="body">
+    <br>
+<p>Primary tenant DNI. Example: <code>12345678A</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant1_email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant1_email"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="joan@rentoo.com"
+               data-component="body">
+    <br>
+<p>Primary tenant email. Example: <code>joan@rentoo.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant1_phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant1_phone"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="600111222"
+               data-component="body">
+    <br>
+<p>Primary tenant phone. Example: <code>600111222</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant2_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant2_name"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="i"
+               data-component="body">
+    <br>
+<p>Must not be greater than 100 characters. Example: <code>i</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant2_dni</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant2_dni"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="(56425593"
+               data-component="body">
+    <br>
+<p>Must match the regex /^([0-9]{8}. Example: <code>(56425593</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant2_email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant2_email"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="lafayette.considine@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Must not be greater than 100 characters. Example: <code>lafayette.considine@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tenant2_phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="tenant2_phone"                data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="aykcmyuwpwlvqwrs"
+               data-component="body">
+    <br>
+<p>Must not be greater than 20 characters. Example: <code>aykcmyuwpwlvqwrs</code></p>
+        </div>
+        </form>
+
+                    <h2 id="contracts-DELETEapi-v1-contracts--uuid-">Delete a contract (soft delete).</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Soft deletes a contract. Admins can delete any contract.
+Regular users can only delete contracts on their own properties.</p>
+
+<span id="example-requests-DELETEapi-v1-contracts--uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-contracts--uuid-">
+            <blockquote>
+            <p>Example response (204, success):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Contract not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v1-contracts--uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-contracts--uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-contracts--uuid-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-contracts--uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-contracts--uuid-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-contracts--uuid-" data-method="DELETE"
+      data-path="api/v1/contracts/{uuid}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-contracts--uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-contracts--uuid-"
+                    onclick="tryItOut('DELETEapi-v1-contracts--uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-contracts--uuid-"
+                    onclick="cancelTryOut('DELETEapi-v1-contracts--uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-contracts--uuid-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/contracts/{uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-contracts--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-contracts--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="uuid"                data-endpoint="DELETEapi-v1-contracts--uuid-"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="url">
+    <br>
+<p>The UUID of the contract. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+            </div>
+                    </form>
 
                 <h1 id="properties">Properties</h1>
 
