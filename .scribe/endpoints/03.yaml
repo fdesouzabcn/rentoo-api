@@ -545,7 +545,7 @@ endpoints:
         name: tenant_pays_community_fees
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -681,7 +681,7 @@ endpoints:
       legal_deposit: 1400.0
       additional_deposit: 16
       tenant_pays_ibi: false
-      tenant_pays_community_fees: false
+      tenant_pays_community_fees: true
       tenant_pays_garbage_fees: true
       irpa_value: 17
       is_tensioned_area: true

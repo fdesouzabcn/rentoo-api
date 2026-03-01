@@ -5,6 +5,7 @@ declare(strict_types=1);
 // use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\ContractController;
+use App\Http\Controllers\Api\V1\FinancialSummaryController;
 use App\Http\Controllers\Api\V1\PropertyController;
 use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,9 @@ Route::prefix('v1')->group(function (): void {
         Route::get('/contracts/{uuid}',    [ContractController::class, 'show']);
         Route::put('/contracts/{uuid}',    [ContractController::class, 'update']);
         Route::delete('/contracts/{uuid}', [ContractController::class, 'destroy']);
+
+        // Business Logic endpoints
+        Route::get('/users/{uuid}/financial-summary', [FinancialSummaryController::class, 'show']);
 
     });
 

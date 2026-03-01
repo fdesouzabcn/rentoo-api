@@ -123,7 +123,103 @@ php artisan passport:client --personal --name="Rentoo Personal Access Client"
 php artisan serve
 ```
 
-API available at: `http://localhost:8000/api/v1`
+---
+
+## API Documentation
+
+Full interactive documentation available at `/docs` once the server is running:
+```bash
+php artisan scribe:generate   # Regenerate docs
+php artisan serve
+# Visit: http://localhost:8000/docs
+```
+---
+
+## API Endpoints
+
+Base URL: `http://localhost:8000/api/v1`
+
+Full interactive documentation available at: `http://localhost:8000/docs`
+
+### Authentication
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---------------|
+| POST | `/api/v1/register` | Register a new owner account | No |
+| POST | `/api/v1/login` | Login and receive access token | No |
+| POST | `/api/v1/logout` | Revoke current access token | Yes |
+
+### Users *(aka "Owners")*
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| GET | `/api/v1/users` | List all users | Admin only |
+| GET | `/api/v1/users/{uuid}` | Show user details | Admin (any) / User (own) |
+| DELETE | `/api/v1/users/{uuid}` | Soft delete user | Admin (any) / User (own) |
+
+> <sup>*A user cannot be deleted if it has existing properties. Delete the properties first.*</sup>
+
+### Properties
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | `/api/v1/properties` | Create a new property | Admin / User |
+| GET | `/api/v1/properties` | List properties | Admin (all) / User (own) |
+| GET | `/api/v1/properties/{uuid}` | Show property details | Admin (any) / User (own) |
+| PUT | `/api/v1/properties/{uuid}` | Full update of a property | Admin (any) / User (own) |
+| DELETE | `/api/v1/properties/{uuid}` | Soft delete a property | Admin (any) / User (own) |
+
+> <sup>*A property cannot be deleted if it has existing contracts. Delete the contracts first.*</sup>
+
+### Contracts
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | `/api/v1/contracts` | Create a new contract | Admin / User (own property only) |
+| GET | `/api/v1/contracts` | List contracts | Admin (all) / User (own properties) |
+| GET | `/api/v1/contracts/{uuid}` | Show contract details | Admin (any) / User (own property) |
+| PUT | `/api/v1/contracts/{uuid}` | Full update of a contract | Admin (any) / User (own property) |
+| DELETE | `/api/v1/contracts/{uuid}` | Soft delete a contract | Admin (any) / User (own property) |
+<
+> <sup>*Contract ownership is nested: a user can only access contracts that belong to properties they own.*</sup>
+
+### Business Logic
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| GET | `/api/v1/users/{uuid}/financial-summary` | Owner financial summary | Admin (any) / User (own) |
+
+> <sup>*Only active and finalized contracts are included — draft contracts are excluded because they represent future intent rather than real income.*</sup>
+
+---
+
+## Authorization Summary
+
+| Role | Users | Properties | Contracts |
+|------|-------|------------|-----------|
+| **Admin** | Full access to all records | Full access to all records | Full access to all records |
+| **User** | Own profile only | Own properties only | Own properties' contracts only |
+
+---
+
+## Running Tests
+```bash
+# Run full test suite
+./vendor/bin/pest
+
+# Run specific test file
+./vendor/bin/pest tests/Feature/Auth/AuthTest.php
+./vendor/bin/pest tests/Feature/User/UserTest.php
+./vendor/bin/pest tests/Feature/User/PropertyTest.php
+./vendor/bin/pest tests/Feature/User/ContractTest.php
+./vendor/bin/pest tests/Feature/FinancialSummary/FinancialSummaryTest.php
+
+```
+
+Tests use an **SQLite in-memory database** (configured in `.env.testing`) — no impact on the real MariaDB data.
+
+---
+
+## Project Structure
+```
+TO BE CREATED
+
+```
 
 ---
 
@@ -144,9 +240,9 @@ curl -X POST http://localhost:8000/api/v1/register \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{
-    "name": "Joan Puigdmon",
+    "name": "Admin Rentoo",
     "dni": "12345678A",
-    "email": "joan@example.com",
+    "email": "admin@example.com",
     "phone": "600111222",
     "address": "Carrer de Balmes, 10",
     "city": "Barcelona",
@@ -162,13 +258,13 @@ curl -X POST http://localhost:8000/api/v1/register \
 curl -X POST http://localhost:8000/api/v1/login \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
-  -d '{"email": "admin@rentoo.com", "password": "password"}'
+  -d '{"email": "admin@example", "password": "password"}'
 ```
 
 Response includes your access token:
 ```json
 {
-  "data": {"id": "uuid", "name": "Admin Rentoo", "email": "admin@rentoo.com"},
+  "data": {"id": "uuid", "name": "Admin Rentoo", "email": "admin@example"},
   "token": "eyJ0eXAiOiJKV1Qi..."
 }
 ```
@@ -182,7 +278,7 @@ curl -X POST http://localhost:8000/api/v1/logout \
 
 ---
 
-## Testing with Postman
+### Testing with Postman
 
 1. Download [Postman](https://postman.com) and create a free account
 2. Create a new environment called `Rentoo - Local` with these variables:
@@ -201,64 +297,6 @@ curl -X POST http://localhost:8000/api/v1/logout \
 3. Set collection-level Authorization: `Bearer Token` → `{{admin_token}}`
 
 > **Important:** Always include `Accept: application/json` header in all requests, otherwise Laravel returns HTML instead of JSON for error responses.
-
----
-
-## Running Tests
-```bash
-# Run full test suite
-./vendor/bin/pest
-
-# Run specific test file
-./vendor/bin/pest tests/Feature/Auth/AuthTest.php
-./vendor/bin/pest tests/Feature/User/UserTest.php
-./vendor/bin/pest tests/Feature/User/PropertyTest.php
-./vendor/bin/pest tests/Feature/User/ContractTest.php
-```
-
-Tests use an **SQLite in-memory database** (configured in `.env.testing`) — no impact on the real MariaDB data.
-
----
-
-## API Documentation
-
-Full interactive documentation available at `/docs` once the server is running:
-```bash
-php artisan scribe:generate   # Regenerate docs
-php artisan serve
-# Visit: http://localhost:8000/docs
-```
-
----
-
-## API Endpoints (18 Total)
-
-| Method | Endpoint | Description | Auth |
-|--------|----------|-------------|------|
-| POST | `/api/v1/register` | Register new user | Public |
-| POST | `/api/v1/login` | Login, receive token | Public |
-| POST | `/api/v1/logout` | Revoke token | Required |
-| GET | `/api/v1/users` | List all users (Admin only) | Required |
-| GET | `/api/v1/users/{uuid}` | Show user profile | Required |
-| DELETE | `/api/v1/users/{uuid}` | Soft delete user | Required |
-| *(More endpoints added as built — see `/docs` for full list)* | | | |
-
----
-
-## Project Structure
-```
-TO BE CREATED
-
-```
-
----
-
-## Git Workflow
-
-This project uses GitFlow:
-- `main` — production-ready releases
-- `develop` — integration branch
-- `feature/*` — individual feature development
 
 ---
 
@@ -288,6 +326,16 @@ The database follows a **relational design** with three main entities:
   - Financial information (monthly rent, deposit)
   - Status enum (DRAFT or FINALIZED)
 
+---
+
+## Git Workflow
+
+This project uses GitFlow:
+- `main` — production-ready releases
+- `develop` — integration branch
+- `feature/*` — individual feature development
+
+---
 
 ## Author
 

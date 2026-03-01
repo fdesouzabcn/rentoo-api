@@ -259,7 +259,6 @@ class PropertyController extends Controller
             return response()->json(['message' => 'Forbidden'], 403);
         }
 
-        // Prevent deletion if property has contracts — mirrors MVC business logic
         $contractsCount = $property->contracts()->count();
 
         if ($contractsCount > 0) {
