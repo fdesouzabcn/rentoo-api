@@ -120,7 +120,6 @@ class ContractController extends Controller
             'tenant2_phone'             => 'nullable|string|max:20',
         ]);
 
-        // Ownership check
         if (! $authUser->hasRole('Admin')) {
             $property = Property::find($validated['property_id']);
 

@@ -82,6 +82,16 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-business-logic" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="business-logic">
+                    <a href="#business-logic">Business Logic</a>
+                </li>
+                                    <ul id="tocify-subheader-business-logic" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="business-logic-GETapi-v1-users--uuid--financial-summary">
+                                <a href="#business-logic-GETapi-v1-users--uuid--financial-summary">Get the financial summary for a user.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-contracts" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="contracts">
                     <a href="#contracts">Contracts</a>
@@ -151,7 +161,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 27, 2026</li>
+        <li>Last updated: March 1, 2026</li>
     </ul>
 </div>
 
@@ -772,6 +782,198 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                <h1 id="business-logic">Business Logic</h1>
+
+    
+
+                                <h2 id="business-logic-GETapi-v1-users--uuid--financial-summary">Get the financial summary for a user.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Returns a property-by-property financial breakdown for the given user,
+plus top-level aggregated totals. Only active and finalized contracts are
+included — draft contracts are excluded because they represent future
+intent rather than real income.</p>
+<p>Admins can request the summary of any user.
+Regular users can only request their own summary.</p>
+
+<span id="example-requests-GETapi-v1-users--uuid--financial-summary">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e/financial-summary" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e/financial-summary"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-users--uuid--financial-summary">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;total_properties&quot;: 2,
+        &quot;total_monthly_income&quot;: &quot;2500.00&quot;,
+        &quot;total_expected_annual_income&quot;: &quot;30000.00&quot;,
+        &quot;total_deposits_held&quot;: &quot;4250.00&quot;,
+        &quot;contracts_expiring&quot;: 1,
+        &quot;properties&quot;: [
+            {
+                &quot;property_id&quot;: &quot;uuid&quot;,
+                &quot;property_address&quot;: &quot;Carrer de Balmes, 100&quot;,
+                &quot;last_rent_amount&quot;: &quot;1000.00&quot;,
+                &quot;monthly_rent&quot;: &quot;1200.00&quot;,
+                &quot;total_deposits_held&quot;: &quot;1200.00&quot;,
+                &quot;total_annual_costs&quot;: &quot;1080.00&quot;,
+                &quot;expected_annual_income&quot;: &quot;14400.00&quot;,
+                &quot;total_income_to_date&quot;: &quot;3600.00&quot;,
+                &quot;profit_to_date&quot;: &quot;3330.00&quot;,
+                &quot;contract_status&quot;: &quot;active&quot;,
+                &quot;contract_end_date&quot;: &quot;2027-03-01&quot;,
+                &quot;expiring&quot;: false,
+                &quot;days_until_expiry&quot;: 365
+            }
+        ]
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;User not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-users--uuid--financial-summary" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-users--uuid--financial-summary"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users--uuid--financial-summary"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-users--uuid--financial-summary" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-users--uuid--financial-summary">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-users--uuid--financial-summary" data-method="GET"
+      data-path="api/v1/users/{uuid}/financial-summary"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--uuid--financial-summary', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-users--uuid--financial-summary"
+                    onclick="tryItOut('GETapi-v1-users--uuid--financial-summary');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-users--uuid--financial-summary"
+                    onclick="cancelTryOut('GETapi-v1-users--uuid--financial-summary');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-users--uuid--financial-summary"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/users/{uuid}/financial-summary</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="uuid"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="url">
+    <br>
+<p>The UUID of the user. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+            </div>
+                    </form>
 
                 <h1 id="contracts">Contracts</h1>
 
@@ -1587,7 +1789,7 @@ Regular users can only update contracts on their own properties.</p>
     \"legal_deposit\": 1400,
     \"additional_deposit\": 16,
     \"tenant_pays_ibi\": false,
-    \"tenant_pays_community_fees\": false,
+    \"tenant_pays_community_fees\": true,
     \"tenant_pays_garbage_fees\": true,
     \"irpa_value\": 17,
     \"is_tensioned_area\": true,
@@ -1622,7 +1824,7 @@ let body = {
     "legal_deposit": 1400,
     "additional_deposit": 16,
     "tenant_pays_ibi": false,
-    "tenant_pays_community_fees": false,
+    "tenant_pays_community_fees": true,
     "tenant_pays_garbage_fees": true,
     "irpa_value": 17,
     "is_tensioned_area": true,
@@ -1896,7 +2098,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tenant_pays_garbage_fees</code></b>&nbsp;&nbsp;
