@@ -19,7 +19,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $adminRole = Role::firstOrCreate(['name' => 'Admin', 'guard_name' => 'api']);
         $userRole  = Role::firstOrCreate(['name' => 'User',  'guard_name' => 'api']);
 
-        // 3. Assign roles to the 3 seeded users created (Admin + 2 owners)
+        // Assign roles to the 3 seeded users created (Admin + 2 owners)
         $admin = User::where('email', 'admin@rentoo.com')->first();
         $owner1 = User::where('email', 'owner1@rentoo.com')->first();
         $owner2 = User::where('email', 'owner2@rentoo.com')->first();

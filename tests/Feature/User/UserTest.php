@@ -137,7 +137,7 @@ test('admin can soft delete any user', function (): void {
 
     $response->assertStatus(204);
     expect(User::find($user->id))->toBeNull();
-    expect(User::withTrashed()->find($user->id))->not->toBeNull();      // DB check
+    expect(User::withTrashed()->find($user->id))->not->toBeNull();
 });
 
 test('regular user can soft delete their own account', function (): void {
@@ -162,7 +162,7 @@ test('regular user cannot soft delete another users account', function (): void 
                      ->deleteJson('/api/v1/users/' . $otherUser->id);
 
     $response->assertStatus(403);
-    expect(User::find($otherUser->id))->not->toBeNull(); // Not deleted
+    expect(User::find($otherUser->id))->not->toBeNull();
 });
 
 test('delete returns 404 for non-existent user', function (): void {

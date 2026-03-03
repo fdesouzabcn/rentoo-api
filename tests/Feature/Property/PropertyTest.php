@@ -117,7 +117,6 @@ test('create a property fails when required fields are missing', function (): vo
 // ─────────────────────────────────────────────
 
 test('admin can list all properties', function (): void {
-    // Arrange
     $admin = User::factory()->create();
     $admin->assignRole('Admin');
 
@@ -127,11 +126,9 @@ test('admin can list all properties', function (): void {
     Property::factory()->count(2)->create(['owner_id' => $user1->id]);
     Property::factory()->count(3)->create(['owner_id' => $user2->id]);
 
-    // Act
     $response = $this->withHeader('Authorization', 'Bearer ' . $admin->createToken('t')->accessToken)
                      ->getJson('/api/v1/properties');
 
-    // Assert
     $response->assertStatus(200)
              ->assertJsonCount(5, 'data');
 });
@@ -162,17 +159,14 @@ test('unauthenticated request cannot list properties', function (): void {
 // ─────────────────────────────────────────────
 
 test('admin can view any property', function (): void {
-    // Arrange
     $admin = User::factory()->create();
     $admin->assignRole('Admin');
 
     $property = Property::factory()->create();
 
-    // Act
     $response = $this->withHeader('Authorization', 'Bearer ' . $admin->createToken('t')->accessToken)
                      ->getJson('/api/v1/properties/' . $property->id);
 
-    // Assert
     $response->assertStatus(200)
              ->assertJsonPath('data.id', $property->id);
 });
@@ -224,13 +218,11 @@ test('unauthenticated request cannot view a property', function (): void {
 // ─────────────────────────────────────────────
 
 test('admin can update any property', function (): void {
-    // Arrange
     $admin = User::factory()->create();
     $admin->assignRole('Admin');
 
     $property = Property::factory()->create(['city' => 'Barcelona']);
 
-    // Act
     $response = $this->withHeader('Authorization', 'Bearer ' . $admin->createToken('t')->accessToken)
                      ->putJson('/api/v1/properties/' . $property->id, [
                          'address'                         => $property->address,
@@ -249,7 +241,6 @@ test('admin can update any property', function (): void {
                          'habitability_certificate_expiry' => $property->habitability_certificate_expiry->format('Y-m-d'),
                      ]);
 
-    // Assert
     $response->assertStatus(200)
              ->assertJsonPath('data.city', 'Girona');
 });
@@ -320,20 +311,17 @@ test('unauthenticated request cannot update a property', function (): void {
 // ─────────────────────────────────────────────
 
 test('admin can soft delete any property', function (): void {
-    // Arrange
     $admin = User::factory()->create();
     $admin->assignRole('Admin');
 
     $property = Property::factory()->create();
 
-    // Act
     $response = $this->withHeader('Authorization', 'Bearer ' . $admin->createToken('t')->accessToken)
                      ->deleteJson('/api/v1/properties/' . $property->id);
 
-    // Assert
     $response->assertStatus(204);
-    expect(Property::find($property->id))->toBeNull();                       // Not in normal queries
-    expect(Property::withTrashed()->find($property->id))->not->toBeNull();   // Still in DB
+    expect(Property::find($property->id))->toBeNull();
+    expect(Property::withTrashed()->find($property->id))->not->toBeNull();
 });
 
 test('user can soft delete their own property', function (): void {

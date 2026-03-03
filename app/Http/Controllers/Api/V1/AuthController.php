@@ -95,11 +95,11 @@ class AuthController extends Controller
      * @group Authentication
      * @unauthenticated
      *
-     * @bodyParam email string required Registered email address. Example: owner@rentoo.com
+     * @bodyParam email string required Registered email address. Example: owner1@rentoo.com
      * @bodyParam password string required Account password. Example: password
      *
      * @response 200 scenario="success" {
-     *   "data": {"id": "uuid-here", "name": "Owner Name", "email": "owner@rentoo.com"},
+     *   "data": {"id": "uuid-here", "name": "Owner Name", "email": "owner1@rentoo.com"},
      *   "token": "access-token-here"
      * }
      * @response 401 scenario="invalid credentials" {"message": "Invalid credentials"}
@@ -114,9 +114,6 @@ class AuthController extends Controller
             'email'    => 'required|string|email',
             'password' => 'required|string',
         ]);
-
-        // if (! Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-        //     return response()->json(['message' => 'Invalid credentials'], 401);
 
         if (! Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
         return response()->json(['message' => 'Invalid credentials'], 401);

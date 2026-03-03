@@ -10,9 +10,6 @@ use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         // Admin user
@@ -30,7 +27,7 @@ class UserSeeder extends Seeder
             ]
         );
 
-        // Regular user 1
+        // Regular user 1 (aka Owner 1)
         User::updateOrCreate(
             ['email' => 'owner1@rentoo.com'],
             [
@@ -45,7 +42,7 @@ class UserSeeder extends Seeder
             ]
         );
 
-        // Regular user 2
+        // Regular user 2 (aka Owner 2)
         User::updateOrCreate(
             ['email' => 'owner2@rentoo.com'],
             [

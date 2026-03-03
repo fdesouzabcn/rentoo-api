@@ -19,6 +19,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -294,7 +295,10 @@ endpoints:
         headers: []
         description: 'validation error'
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -316,6 +320,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -342,7 +347,10 @@ endpoints:
         headers: []
         description: unauthenticated
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -364,6 +372,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -411,7 +420,10 @@ endpoints:
         headers: []
         description: 'not found'
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -433,6 +445,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -545,7 +558,7 @@ endpoints:
         name: tenant_pays_community_fees
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -556,7 +569,7 @@ endpoints:
         name: tenant_pays_garbage_fees
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -578,7 +591,7 @@ endpoints:
         name: is_tensioned_area
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -681,10 +694,10 @@ endpoints:
       legal_deposit: 1400.0
       additional_deposit: 16
       tenant_pays_ibi: false
-      tenant_pays_community_fees: true
-      tenant_pays_garbage_fees: true
+      tenant_pays_community_fees: false
+      tenant_pays_garbage_fees: false
       irpa_value: 17
-      is_tensioned_area: true
+      is_tensioned_area: false
       tenant1_name: 'Joan Puigdemon'
       tenant1_dni: 12345678A
       tenant1_email: joan@rentoo.com
@@ -720,7 +733,10 @@ endpoints:
         headers: []
         description: 'not found'
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
@@ -742,6 +758,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
@@ -789,7 +806,10 @@ endpoints:
         headers: []
         description: 'not found'
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null
