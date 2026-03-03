@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-// use Illuminate\Http\Request;
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\ContractController;
 use App\Http\Controllers\Api\V1\FinancialSummaryController;

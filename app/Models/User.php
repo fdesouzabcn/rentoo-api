@@ -58,13 +58,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-     // Defines one-to-many relationship: One Owner → Many Properties
+
     public function properties(): HasMany
     {
         return $this->hasMany(Property::class, 'owner_id');
     }
 
-    // Automatically uppercase DNIs regardless of input format.
     public function setDniAttribute(?string $value): void
     {
         $this->attributes['dni'] = $value ? strtoupper($value) : null;

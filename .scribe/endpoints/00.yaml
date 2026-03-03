@@ -202,7 +202,7 @@ endpoints:
         name: email
         description: 'Registered email address.'
         required: true
-        example: owner@rentoo.com
+        example: owner1@rentoo.com
         type: string
         enumValues: []
         exampleWasSpecified: true
@@ -220,7 +220,7 @@ endpoints:
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      email: owner@rentoo.com
+      email: owner1@rentoo.com
       password: password
     fileParameters: []
     responses:
@@ -229,7 +229,7 @@ endpoints:
         status: 200
         content: |-
           {
-            "data": {"id": "uuid-here", "name": "Owner Name", "email": "owner@rentoo.com"},
+            "data": {"id": "uuid-here", "name": "Owner Name", "email": "owner1@rentoo.com"},
             "token": "access-token-here"
           }
         headers: []
@@ -271,6 +271,7 @@ endpoints:
       authenticated: true
       deprecated: false
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -294,7 +295,10 @@ endpoints:
         headers: []
         description: unauthenticated
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
     controller: null
     method: null
     route: null

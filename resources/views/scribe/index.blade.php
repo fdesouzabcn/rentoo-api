@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Laravel API Documentation</title>
+    <title>Rentoo REST API</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost";
+        var tryItOutBaseUrl = "http://127.0.0.1:8000";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -82,35 +82,19 @@
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-business-logic" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="business-logic">
-                    <a href="#business-logic">Business Logic</a>
+                    <ul id="tocify-header-users" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="users">
+                    <a href="#users">Users</a>
                 </li>
-                                    <ul id="tocify-subheader-business-logic" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="business-logic-GETapi-v1-users--uuid--financial-summary">
-                                <a href="#business-logic-GETapi-v1-users--uuid--financial-summary">Get the financial summary for a user.</a>
+                                    <ul id="tocify-subheader-users" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="users-GETapi-v1-users">
+                                <a href="#users-GETapi-v1-users">List all users.</a>
                             </li>
-                                                                        </ul>
-                            </ul>
-                    <ul id="tocify-header-contracts" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="contracts">
-                    <a href="#contracts">Contracts</a>
-                </li>
-                                    <ul id="tocify-subheader-contracts" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="contracts-POSTapi-v1-contracts">
-                                <a href="#contracts-POSTapi-v1-contracts">Create a new contract.</a>
+                                                                                <li class="tocify-item level-2" data-unique="users-GETapi-v1-users--uuid-">
+                                <a href="#users-GETapi-v1-users--uuid-">Show a specific user.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="contracts-GETapi-v1-contracts">
-                                <a href="#contracts-GETapi-v1-contracts">List all contracts.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="contracts-GETapi-v1-contracts--uuid-">
-                                <a href="#contracts-GETapi-v1-contracts--uuid-">Show a specific contract.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="contracts-PUTapi-v1-contracts--uuid-">
-                                <a href="#contracts-PUTapi-v1-contracts--uuid-">Update a contract.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="contracts-DELETEapi-v1-contracts--uuid-">
-                                <a href="#contracts-DELETEapi-v1-contracts--uuid-">Delete a contract (soft delete).</a>
+                                                                                <li class="tocify-item level-2" data-unique="users-DELETEapi-v1-users--uuid-">
+                                <a href="#users-DELETEapi-v1-users--uuid-">Delete a user (soft delete).</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -136,19 +120,35 @@
                             </li>
                                                                         </ul>
                             </ul>
-                    <ul id="tocify-header-users" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="users">
-                    <a href="#users">Users</a>
+                    <ul id="tocify-header-contracts" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="contracts">
+                    <a href="#contracts">Contracts</a>
                 </li>
-                                    <ul id="tocify-subheader-users" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="users-GETapi-v1-users">
-                                <a href="#users-GETapi-v1-users">List all users.</a>
+                                    <ul id="tocify-subheader-contracts" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="contracts-POSTapi-v1-contracts">
+                                <a href="#contracts-POSTapi-v1-contracts">Create a new contract.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="users-GETapi-v1-users--uuid-">
-                                <a href="#users-GETapi-v1-users--uuid-">Show a specific user.</a>
+                                                                                <li class="tocify-item level-2" data-unique="contracts-GETapi-v1-contracts">
+                                <a href="#contracts-GETapi-v1-contracts">List all contracts.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="users-DELETEapi-v1-users--uuid-">
-                                <a href="#users-DELETEapi-v1-users--uuid-">Delete a user (soft delete).</a>
+                                                                                <li class="tocify-item level-2" data-unique="contracts-GETapi-v1-contracts--uuid-">
+                                <a href="#contracts-GETapi-v1-contracts--uuid-">Show a specific contract.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="contracts-PUTapi-v1-contracts--uuid-">
+                                <a href="#contracts-PUTapi-v1-contracts--uuid-">Update a contract.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="contracts-DELETEapi-v1-contracts--uuid-">
+                                <a href="#contracts-DELETEapi-v1-contracts--uuid-">Delete a contract (soft delete).</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-business-logic" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="business-logic">
+                    <a href="#business-logic">Business Logic</a>
+                </li>
+                                    <ul id="tocify-subheader-business-logic" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="business-logic-GETapi-v1-users--uuid--financial-summary">
+                                <a href="#business-logic-GETapi-v1-users--uuid--financial-summary">Get the financial summary for a user.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -161,7 +161,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 1, 2026</li>
+        <li>Last updated: March 3, 2026</li>
     </ul>
 </div>
 
@@ -169,16 +169,19 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
+<p>REST API for Rentoo — a comprehensive rental property management system for the Spanish market. Manage property owners, rental properties, and tenancy contracts with role-based access control. Built with Laravel 12 and secured with Laravel Passport OAuth2 tokens.</p>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>http://127.0.0.1:8000</code>
 </aside>
-<pre><code>This documentation aims to provide all the information you need to work with our API.
+<pre><code>This documentation covers all 17 endpoints of the Rentoo REST API.
 
-&lt;aside&gt;As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).&lt;/aside&gt;</code></pre>
+As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_TOKEN}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>Obtain a token via <code>POST /api/v1/login</code>. Include it in all protected requests as:<br><br><code>Authorization: Bearer {token}</code></p>
 
         <h1 id="authentication">Authentication</h1>
 
@@ -198,7 +201,7 @@ The new user is automatically assigned the &quot;User&quot; role.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/register" \
+    "http://127.0.0.1:8000/api/v1/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -218,7 +221,7 @@ The new user is automatically assigned the &quot;User&quot; role.</p>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/register"
+    "http://127.0.0.1:8000/api/v1/register"
 );
 
 const headers = {
@@ -484,11 +487,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/login" \
+    "http://127.0.0.1:8000/api/v1/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"owner@rentoo.com\",
+    \"email\": \"owner1@rentoo.com\",
     \"password\": \"password\"
 }"
 </code></pre></div>
@@ -496,7 +499,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/login"
+    "http://127.0.0.1:8000/api/v1/login"
 );
 
 const headers = {
@@ -505,7 +508,7 @@ const headers = {
 };
 
 let body = {
-    "email": "owner@rentoo.com",
+    "email": "owner1@rentoo.com",
     "password": "password"
 };
 
@@ -527,7 +530,7 @@ fetch(url, {
     &quot;data&quot;: {
         &quot;id&quot;: &quot;uuid-here&quot;,
         &quot;name&quot;: &quot;Owner Name&quot;,
-        &quot;email&quot;: &quot;owner@rentoo.com&quot;
+        &quot;email&quot;: &quot;owner1@rentoo.com&quot;
     },
     &quot;token&quot;: &quot;access-token-here&quot;
 }</code>
@@ -635,10 +638,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="owner@rentoo.com"
+               value="owner1@rentoo.com"
                data-component="body">
     <br>
-<p>Registered email address. Example: <code>owner@rentoo.com</code></p>
+<p>Registered email address. Example: <code>owner1@rentoo.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -668,17 +671,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/logout" \
+    "http://127.0.0.1:8000/api/v1/logout" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/logout"
+    "http://127.0.0.1:8000/api/v1/logout"
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -758,6 +763,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-logout"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -783,40 +800,37 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                <h1 id="business-logic">Business Logic</h1>
+                <h1 id="users">Users</h1>
 
     
 
-                                <h2 id="business-logic-GETapi-v1-users--uuid--financial-summary">Get the financial summary for a user.</h2>
+                                <h2 id="users-GETapi-v1-users">List all users.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Returns a property-by-property financial breakdown for the given user,
-plus top-level aggregated totals. Only active and finalized contracts are
-included — draft contracts are excluded because they represent future
-intent rather than real income.</p>
-<p>Admins can request the summary of any user.
-Regular users can only request their own summary.</p>
+<p>Returns a list of all registered users. Only accessible by admins.</p>
 
-<span id="example-requests-GETapi-v1-users--uuid--financial-summary">
+<span id="example-requests-GETapi-v1-users">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e/financial-summary" \
+    --get "http://127.0.0.1:8000/api/v1/users" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e/financial-summary"
+    "http://127.0.0.1:8000/api/v1/users"
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -828,7 +842,175 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-v1-users--uuid--financial-summary">
+<span id="example-responses-GETapi-v1-users">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;uuid-here&quot;,
+            &quot;name&quot;: &quot;Joan Puig&quot;,
+            &quot;email&quot;: &quot;joan@rentoo.com&quot;,
+            &quot;dni&quot;: &quot;12345678A&quot;,
+            &quot;phone&quot;: &quot;600111222&quot;,
+            &quot;city&quot;: &quot;Barcelona&quot;,
+            &quot;province&quot;: &quot;Barcelona&quot;,
+            &quot;roles&quot;: [
+                &quot;User&quot;
+            ],
+            &quot;created_at&quot;: &quot;2026-02-20T10:00:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-02-20T10:00:00.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-users">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-users" data-method="GET"
+      data-path="api/v1/users"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-users"
+                    onclick="tryItOut('GETapi-v1-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-users"
+                    onclick="cancelTryOut('GETapi-v1-users');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-users"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/users</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-users"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="users-GETapi-v1-users--uuid-">Show a specific user.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Returns the details of a user. Admins can view any user.
+Regular users can only view their own profile.</p>
+
+<span id="example-requests-GETapi-v1-users--uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-users--uuid-">
             <blockquote>
             <p>Example response (200, success):</p>
         </blockquote>
@@ -836,28 +1018,18 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;total_properties&quot;: 2,
-        &quot;total_monthly_income&quot;: &quot;2500.00&quot;,
-        &quot;total_expected_annual_income&quot;: &quot;30000.00&quot;,
-        &quot;total_deposits_held&quot;: &quot;4250.00&quot;,
-        &quot;contracts_expiring&quot;: 1,
-        &quot;properties&quot;: [
-            {
-                &quot;property_id&quot;: &quot;uuid&quot;,
-                &quot;property_address&quot;: &quot;Carrer de Balmes, 100&quot;,
-                &quot;last_rent_amount&quot;: &quot;1000.00&quot;,
-                &quot;monthly_rent&quot;: &quot;1200.00&quot;,
-                &quot;total_deposits_held&quot;: &quot;1200.00&quot;,
-                &quot;total_annual_costs&quot;: &quot;1080.00&quot;,
-                &quot;expected_annual_income&quot;: &quot;14400.00&quot;,
-                &quot;total_income_to_date&quot;: &quot;3600.00&quot;,
-                &quot;profit_to_date&quot;: &quot;3330.00&quot;,
-                &quot;contract_status&quot;: &quot;active&quot;,
-                &quot;contract_end_date&quot;: &quot;2027-03-01&quot;,
-                &quot;expiring&quot;: false,
-                &quot;days_until_expiry&quot;: 365
-            }
-        ]
+        &quot;id&quot;: &quot;uuid-here&quot;,
+        &quot;name&quot;: &quot;Joan Puig&quot;,
+        &quot;email&quot;: &quot;joan@rentoo.com&quot;,
+        &quot;dni&quot;: &quot;12345678A&quot;,
+        &quot;phone&quot;: &quot;600111222&quot;,
+        &quot;city&quot;: &quot;Barcelona&quot;,
+        &quot;province&quot;: &quot;Barcelona&quot;,
+        &quot;roles&quot;: [
+            &quot;User&quot;
+        ],
+        &quot;created_at&quot;: &quot;2026-02-20T10:00:00.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-02-20T10:00:00.000000Z&quot;
     }
 }</code>
  </pre>
@@ -889,43 +1061,43 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-users--uuid--financial-summary" hidden>
+<span id="execution-results-GETapi-v1-users--uuid-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-users--uuid--financial-summary"></span>:
+                id="execution-response-status-GETapi-v1-users--uuid-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-users--uuid--financial-summary"
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users--uuid-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-users--uuid--financial-summary" hidden>
+<span id="execution-error-GETapi-v1-users--uuid-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-users--uuid--financial-summary">
+    <pre><code id="execution-error-message-GETapi-v1-users--uuid-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-v1-users--uuid--financial-summary" data-method="GET"
-      data-path="api/v1/users/{uuid}/financial-summary"
+<form id="form-GETapi-v1-users--uuid-" data-method="GET"
+      data-path="api/v1/users/{uuid}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--uuid--financial-summary', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--uuid-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users--uuid--financial-summary"
-                    onclick="tryItOut('GETapi-v1-users--uuid--financial-summary');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-users--uuid-"
+                    onclick="tryItOut('GETapi-v1-users--uuid-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users--uuid--financial-summary"
-                    onclick="cancelTryOut('GETapi-v1-users--uuid--financial-summary');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-users--uuid-"
+                    onclick="cancelTryOut('GETapi-v1-users--uuid-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users--uuid--financial-summary"
+                    id="btn-executetryout-GETapi-v1-users--uuid-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -933,16 +1105,28 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/users/{uuid}/financial-summary</code></b>
+            <b><code>api/v1/users/{uuid}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users--uuid-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
+                              name="Content-Type"                data-endpoint="GETapi-v1-users--uuid-"
                value="application/json"
                data-component="header">
     <br>
@@ -954,7 +1138,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
+                              name="Accept"                data-endpoint="GETapi-v1-users--uuid-"
                value="application/json"
                data-component="header">
     <br>
@@ -967,11 +1151,1557 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="uuid"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
+                              name="uuid"                data-endpoint="GETapi-v1-users--uuid-"
                value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
                data-component="url">
     <br>
 <p>The UUID of the user. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="users-DELETEapi-v1-users--uuid-">Delete a user (soft delete).</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Soft deletes a user account. The record is preserved in the database
+with a deleted_at timestamp but will no longer appear in normal queries.
+Admins can delete any user. Regular users can only delete their own account.</p>
+
+<span id="example-requests-DELETEapi-v1-users--uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://127.0.0.1:8000/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-users--uuid-">
+            <blockquote>
+            <p>Example response (204, success):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;User not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v1-users--uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-users--uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-users--uuid-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-users--uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-users--uuid-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-users--uuid-" data-method="DELETE"
+      data-path="api/v1/users/{uuid}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-users--uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-users--uuid-"
+                    onclick="tryItOut('DELETEapi-v1-users--uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-users--uuid-"
+                    onclick="cancelTryOut('DELETEapi-v1-users--uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-users--uuid-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/users/{uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-users--uuid-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-users--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-users--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="uuid"                data-endpoint="DELETEapi-v1-users--uuid-"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="url">
+    <br>
+<p>The UUID of the user. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+            </div>
+                    </form>
+
+                <h1 id="properties">Properties</h1>
+
+    
+
+                                <h2 id="properties-POSTapi-v1-properties">Create a new property.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Creates a property and automatically assigns it to the authenticated user as owner.</p>
+
+<span id="example-requests-POSTapi-v1-properties">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://127.0.0.1:8000/api/v1/properties" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"address\": \"Carrer de Balmes, 100\",
+    \"city\": \"Barcelona\",
+    \"postal_code\": \"08008\",
+    \"province\": \"Barcelona\",
+    \"cadastral_reference\": \"9876543ZX9876T0001TT\",
+    \"surface_area\": 85.5,
+    \"bedrooms\": 3,
+    \"bathrooms\": 2,
+    \"description\": \"Hermoso Piso en Eixample\",
+    \"energy_certificate_rating\": \"C\",
+    \"energy_certificate_number\": \"TT98765432\",
+    \"energy_certificate_expiry\": \"2030-01-01\",
+    \"habitability_certificate_number\": \"CHB34567891011\",
+    \"habitability_certificate_expiry\": \"2030-06-01\",
+    \"last_rent_amount\": 1200,
+    \"ibi_annual_amount\": 450,
+    \"community_fees_monthly\": 80,
+    \"garbage_fees_annual\": 120
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/properties"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "address": "Carrer de Balmes, 100",
+    "city": "Barcelona",
+    "postal_code": "08008",
+    "province": "Barcelona",
+    "cadastral_reference": "9876543ZX9876T0001TT",
+    "surface_area": 85.5,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "description": "Hermoso Piso en Eixample",
+    "energy_certificate_rating": "C",
+    "energy_certificate_number": "TT98765432",
+    "energy_certificate_expiry": "2030-01-01",
+    "habitability_certificate_number": "CHB34567891011",
+    "habitability_certificate_expiry": "2030-06-01",
+    "last_rent_amount": 1200,
+    "ibi_annual_amount": 450,
+    "community_fees_monthly": 80,
+    "garbage_fees_annual": 120
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-properties">
+            <blockquote>
+            <p>Example response (201, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;uuid-here&quot;,
+        &quot;city&quot;: &quot;Barcelona&quot;,
+        &quot;owner_id&quot;: &quot;owner-uuid&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422, validation error):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The cadastral reference field must be 20 characters.&quot;,
+    &quot;errors&quot;: {
+        &quot;cadastral_reference&quot;: [
+            &quot;The cadastral reference field must be 20 characters.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v1-properties" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-properties"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-properties"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-properties" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-properties">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-properties" data-method="POST"
+      data-path="api/v1/properties"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-properties', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-properties"
+                    onclick="tryItOut('POSTapi-v1-properties');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-properties"
+                    onclick="cancelTryOut('POSTapi-v1-properties');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-properties"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/properties</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-properties"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-properties"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-properties"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="POSTapi-v1-properties"
+               value="Carrer de Balmes, 100"
+               data-component="body">
+    <br>
+<p>Street address. Max 250 characters. Example: <code>Carrer de Balmes, 100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="city"                data-endpoint="POSTapi-v1-properties"
+               value="Barcelona"
+               data-component="body">
+    <br>
+<p>City. Max 100 characters. Example: <code>Barcelona</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>postal_code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="postal_code"                data-endpoint="POSTapi-v1-properties"
+               value="08008"
+               data-component="body">
+    <br>
+<p>Postal code. Max 10 characters. Example: <code>08008</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>province</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="province"                data-endpoint="POSTapi-v1-properties"
+               value="Barcelona"
+               data-component="body">
+    <br>
+<p>Province. Max 100 characters. Example: <code>Barcelona</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cadastral_reference</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cadastral_reference"                data-endpoint="POSTapi-v1-properties"
+               value="9876543ZX9876T0001TT"
+               data-component="body">
+    <br>
+<p>Spanish cadastral reference. Exactly 20 alphanumeric characters, must be unique. Example: <code>9876543ZX9876T0001TT</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>surface_area</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="surface_area"                data-endpoint="POSTapi-v1-properties"
+               value="85.5"
+               data-component="body">
+    <br>
+<p>Surface area in m². Between 10 and 9999.99. Example: <code>85.5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>bedrooms</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="bedrooms"                data-endpoint="POSTapi-v1-properties"
+               value="3"
+               data-component="body">
+    <br>
+<p>Number of bedrooms. Between 0 and 255. Example: <code>3</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>bathrooms</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="bathrooms"                data-endpoint="POSTapi-v1-properties"
+               value="2"
+               data-component="body">
+    <br>
+<p>Number of bathrooms. Between 0 and 255. Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-v1-properties"
+               value="Hermoso Piso en Eixample"
+               data-component="body">
+    <br>
+<p>optional Property description. Max 1000 characters. Example: <code>Hermoso Piso en Eixample</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>energy_certificate_rating</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="energy_certificate_rating"                data-endpoint="POSTapi-v1-properties"
+               value="C"
+               data-component="body">
+    <br>
+<p>Energy rating (A–G). Example: <code>C</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>energy_certificate_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="energy_certificate_number"                data-endpoint="POSTapi-v1-properties"
+               value="TT98765432"
+               data-component="body">
+    <br>
+<p>Alphanumeric certificate number. Max 50 characters. Example: <code>TT98765432</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>energy_certificate_expiry</code></b>&nbsp;&nbsp;
+<small>date</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="energy_certificate_expiry"                data-endpoint="POSTapi-v1-properties"
+               value="2030-01-01"
+               data-component="body">
+    <br>
+<p>Expiry date, must be after today (Y-m-d). Example: <code>2030-01-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>habitability_certificate_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="habitability_certificate_number"                data-endpoint="POSTapi-v1-properties"
+               value="CHB34567891011"
+               data-component="body">
+    <br>
+<p>Alphanumeric certificate number. Max 50 characters. Example: <code>CHB34567891011</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>habitability_certificate_expiry</code></b>&nbsp;&nbsp;
+<small>date</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="habitability_certificate_expiry"                data-endpoint="POSTapi-v1-properties"
+               value="2030-06-01"
+               data-component="body">
+    <br>
+<p>Expiry date, must be after today (Y-m-d). Example: <code>2030-06-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_rent_amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="last_rent_amount"                data-endpoint="POSTapi-v1-properties"
+               value="1200"
+               data-component="body">
+    <br>
+<p>optional Last rent amount in €. Max 999999.99. Example: <code>1200</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>ibi_annual_amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="ibi_annual_amount"                data-endpoint="POSTapi-v1-properties"
+               value="450"
+               data-component="body">
+    <br>
+<p>optional Annual IBI in €. Max 999999.99. Example: <code>450</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>community_fees_monthly</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="community_fees_monthly"                data-endpoint="POSTapi-v1-properties"
+               value="80"
+               data-component="body">
+    <br>
+<p>optional Monthly community fees in €. Max 999999.99. Example: <code>80</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>garbage_fees_annual</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="garbage_fees_annual"                data-endpoint="POSTapi-v1-properties"
+               value="120"
+               data-component="body">
+    <br>
+<p>optional Annual garbage fees in €. Max 999999.99. Example: <code>120</code></p>
+        </div>
+        </form>
+
+                    <h2 id="properties-GETapi-v1-properties">List all properties.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Returns all properties for admins. Regular users only see their own properties.</p>
+
+<span id="example-requests-GETapi-v1-properties">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/v1/properties" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/properties"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-properties">
+            <blockquote>
+            <p>Example response (200, admin success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;uuid-here&quot;,
+            &quot;owner_id&quot;: &quot;owner-uuid&quot;,
+            &quot;address&quot;: &quot;Carrer de Balmes, 100&quot;,
+            &quot;city&quot;: &quot;Barcelona&quot;,
+            &quot;bedrooms&quot;: 3,
+            &quot;bathrooms&quot;: 2
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-properties" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-properties"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-properties"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-properties" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-properties">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-properties" data-method="GET"
+      data-path="api/v1/properties"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-properties', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-properties"
+                    onclick="tryItOut('GETapi-v1-properties');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-properties"
+                    onclick="cancelTryOut('GETapi-v1-properties');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-properties"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/properties</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-properties"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-properties"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-properties"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="properties-GETapi-v1-properties--uuid-">Show a specific property.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Admins can view any property. Regular users can only view their own properties.</p>
+
+<span id="example-requests-GETapi-v1-properties--uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-properties--uuid-">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;uuid-here&quot;,
+        &quot;city&quot;: &quot;Barcelona&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Property not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-properties--uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-properties--uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-properties--uuid-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-properties--uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-properties--uuid-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-properties--uuid-" data-method="GET"
+      data-path="api/v1/properties/{uuid}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-properties--uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-properties--uuid-"
+                    onclick="tryItOut('GETapi-v1-properties--uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-properties--uuid-"
+                    onclick="cancelTryOut('GETapi-v1-properties--uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-properties--uuid-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/properties/{uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-properties--uuid-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-properties--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-properties--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="uuid"                data-endpoint="GETapi-v1-properties--uuid-"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="url">
+    <br>
+<p>The UUID of the property. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="properties-PUTapi-v1-properties--uuid-">Update a property.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Full update (PUT) of a property. Admins can update any property.
+Regular users can only update their own properties.</p>
+
+<span id="example-requests-PUTapi-v1-properties--uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://127.0.0.1:8000/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"address\": \"Carrer de Balmes, 100\",
+    \"city\": \"Girona\",
+    \"postal_code\": \"17001\",
+    \"province\": \"Girona\",
+    \"cadastral_reference\": \"9876543ZX9876T0001TT\",
+    \"surface_area\": 85.5,
+    \"bedrooms\": 3,
+    \"bathrooms\": 2,
+    \"description\": \"Renovated flat\",
+    \"energy_certificate_rating\": \"B\",
+    \"energy_certificate_number\": \"TT98765432\",
+    \"energy_certificate_expiry\": \"2031-01-01\",
+    \"habitability_certificate_number\": \"CHB34567891011\",
+    \"habitability_certificate_expiry\": \"2031-06-01\",
+    \"last_rent_amount\": 1400,
+    \"ibi_annual_amount\": 500,
+    \"community_fees_monthly\": 90,
+    \"garbage_fees_annual\": 130
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "address": "Carrer de Balmes, 100",
+    "city": "Girona",
+    "postal_code": "17001",
+    "province": "Girona",
+    "cadastral_reference": "9876543ZX9876T0001TT",
+    "surface_area": 85.5,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "description": "Renovated flat",
+    "energy_certificate_rating": "B",
+    "energy_certificate_number": "TT98765432",
+    "energy_certificate_expiry": "2031-01-01",
+    "habitability_certificate_number": "CHB34567891011",
+    "habitability_certificate_expiry": "2031-06-01",
+    "last_rent_amount": 1400,
+    "ibi_annual_amount": 500,
+    "community_fees_monthly": 90,
+    "garbage_fees_annual": 130
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-properties--uuid-">
+            <blockquote>
+            <p>Example response (200, success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;uuid-here&quot;,
+        &quot;city&quot;: &quot;Girona&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Property not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-v1-properties--uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-properties--uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-properties--uuid-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-properties--uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-properties--uuid-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-properties--uuid-" data-method="PUT"
+      data-path="api/v1/properties/{uuid}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-properties--uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-properties--uuid-"
+                    onclick="tryItOut('PUTapi-v1-properties--uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-properties--uuid-"
+                    onclick="cancelTryOut('PUTapi-v1-properties--uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-properties--uuid-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/properties/{uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-properties--uuid-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="uuid"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="url">
+    <br>
+<p>The UUID of the property. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="Carrer de Balmes, 100"
+               data-component="body">
+    <br>
+<p>Street address. Max 250 characters. Example: <code>Carrer de Balmes, 100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="city"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="Girona"
+               data-component="body">
+    <br>
+<p>City. Max 100 characters. Example: <code>Girona</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>postal_code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="postal_code"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="17001"
+               data-component="body">
+    <br>
+<p>Postal code. Max 10 characters. Example: <code>17001</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>province</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="province"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="Girona"
+               data-component="body">
+    <br>
+<p>Province. Max 100 characters. Example: <code>Girona</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cadastral_reference</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cadastral_reference"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="9876543ZX9876T0001TT"
+               data-component="body">
+    <br>
+<p>Exactly 20 alphanumeric characters. Example: <code>9876543ZX9876T0001TT</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>surface_area</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="surface_area"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="85.5"
+               data-component="body">
+    <br>
+<p>Surface area in m². Between 10 and 9999.99. Example: <code>85.5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>bedrooms</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="bedrooms"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="3"
+               data-component="body">
+    <br>
+<p>Number of bedrooms. Between 0 and 255. Example: <code>3</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>bathrooms</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="bathrooms"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="2"
+               data-component="body">
+    <br>
+<p>Number of bathrooms. Between 0 and 255. Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="Renovated flat"
+               data-component="body">
+    <br>
+<p>optional Property description. Max 1000 characters. Example: <code>Renovated flat</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>energy_certificate_rating</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="energy_certificate_rating"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="B"
+               data-component="body">
+    <br>
+<p>Energy rating (A–G). Example: <code>B</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>energy_certificate_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="energy_certificate_number"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="TT98765432"
+               data-component="body">
+    <br>
+<p>Alphanumeric certificate number. Max 50 characters. Example: <code>TT98765432</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>energy_certificate_expiry</code></b>&nbsp;&nbsp;
+<small>date</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="energy_certificate_expiry"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="2031-01-01"
+               data-component="body">
+    <br>
+<p>Expiry date (Y-m-d). Example: <code>2031-01-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>habitability_certificate_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="habitability_certificate_number"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="CHB34567891011"
+               data-component="body">
+    <br>
+<p>Alphanumeric certificate number. Max 50 characters. Example: <code>CHB34567891011</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>habitability_certificate_expiry</code></b>&nbsp;&nbsp;
+<small>date</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="habitability_certificate_expiry"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="2031-06-01"
+               data-component="body">
+    <br>
+<p>Expiry date (Y-m-d). Example: <code>2031-06-01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_rent_amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="last_rent_amount"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="1400"
+               data-component="body">
+    <br>
+<p>optional Last rent amount in €. Max 999999.99. Example: <code>1400</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>ibi_annual_amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="ibi_annual_amount"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="500"
+               data-component="body">
+    <br>
+<p>optional Annual IBI in €. Max 999999.99. Example: <code>500</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>community_fees_monthly</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="community_fees_monthly"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="90"
+               data-component="body">
+    <br>
+<p>optional Monthly community fees in €. Max 999999.99. Example: <code>90</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>garbage_fees_annual</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="garbage_fees_annual"                data-endpoint="PUTapi-v1-properties--uuid-"
+               value="130"
+               data-component="body">
+    <br>
+<p>optional Annual garbage fees in €. Max 999999.99. Example: <code>130</code></p>
+        </div>
+        </form>
+
+                    <h2 id="properties-DELETEapi-v1-properties--uuid-">Delete a property (soft delete).</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Soft deletes a property. Fails if the property has active contracts.
+Admins can delete any property. Regular users can only delete their own properties.</p>
+
+<span id="example-requests-DELETEapi-v1-properties--uuid-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://127.0.0.1:8000/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-properties--uuid-">
+            <blockquote>
+            <p>Example response (204, success):</p>
+        </blockquote>
+                <pre>
+<code>Empty response</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, forbidden):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Forbidden&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404, not found):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Property not found&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (409, has contracts):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Cannot delete property with 2 active contracts. Please delete them first.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v1-properties--uuid-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-properties--uuid-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-properties--uuid-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-properties--uuid-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-properties--uuid-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-properties--uuid-" data-method="DELETE"
+      data-path="api/v1/properties/{uuid}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-properties--uuid-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-properties--uuid-"
+                    onclick="tryItOut('DELETEapi-v1-properties--uuid-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-properties--uuid-"
+                    onclick="cancelTryOut('DELETEapi-v1-properties--uuid-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-properties--uuid-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/properties/{uuid}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-properties--uuid-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-properties--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-properties--uuid-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="uuid"                data-endpoint="DELETEapi-v1-properties--uuid-"
+               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+               data-component="url">
+    <br>
+<p>The UUID of the property. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
             </div>
                     </form>
 
@@ -994,7 +2724,8 @@ on any property. Regular users can only create contracts on their own properties
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/contracts" \
+    "http://127.0.0.1:8000/api/v1/contracts" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1024,10 +2755,11 @@ on any property. Regular users can only create contracts on their own properties
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/contracts"
+    "http://127.0.0.1:8000/api/v1/contracts"
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1153,6 +2885,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <b><code>api/v1/contracts</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-contracts"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
@@ -1475,17 +3219,19 @@ that belong to properties they own.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/contracts" \
+    --get "http://127.0.0.1:8000/api/v1/contracts" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/contracts"
+    "http://127.0.0.1:8000/api/v1/contracts"
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1572,6 +3318,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-contracts"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -1612,17 +3370,19 @@ on properties they own.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --get "http://127.0.0.1:8000/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+    "http://127.0.0.1:8000/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1724,6 +3484,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-contracts--uuid-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -1777,7 +3549,8 @@ Regular users can only update contracts on their own properties.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    "http://127.0.0.1:8000/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1789,10 +3562,10 @@ Regular users can only update contracts on their own properties.</p>
     \"legal_deposit\": 1400,
     \"additional_deposit\": 16,
     \"tenant_pays_ibi\": false,
-    \"tenant_pays_community_fees\": true,
-    \"tenant_pays_garbage_fees\": true,
+    \"tenant_pays_community_fees\": false,
+    \"tenant_pays_garbage_fees\": false,
     \"irpa_value\": 17,
-    \"is_tensioned_area\": true,
+    \"is_tensioned_area\": false,
     \"tenant1_name\": \"Joan Puigdemon\",
     \"tenant1_dni\": \"12345678A\",
     \"tenant1_email\": \"joan@rentoo.com\",
@@ -1807,10 +3580,11 @@ Regular users can only update contracts on their own properties.</p>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+    "http://127.0.0.1:8000/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -1824,10 +3598,10 @@ let body = {
     "legal_deposit": 1400,
     "additional_deposit": 16,
     "tenant_pays_ibi": false,
-    "tenant_pays_community_fees": true,
-    "tenant_pays_garbage_fees": true,
+    "tenant_pays_community_fees": false,
+    "tenant_pays_garbage_fees": false,
     "irpa_value": 17,
-    "is_tensioned_area": true,
+    "is_tensioned_area": false,
     "tenant1_name": "Joan Puigdemon",
     "tenant1_dni": "12345678A",
     "tenant1_email": "joan@rentoo.com",
@@ -1934,6 +3708,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <b><code>api/v1/contracts/{uuid}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-contracts--uuid-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
@@ -2098,7 +3884,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tenant_pays_garbage_fees</code></b>&nbsp;&nbsp;
@@ -2120,7 +3906,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>irpa_value</code></b>&nbsp;&nbsp;
@@ -2154,7 +3940,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>tenant1_name</code></b>&nbsp;&nbsp;
@@ -2269,17 +4055,19 @@ Regular users can only delete contracts on their own properties.</p>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    "http://127.0.0.1:8000/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
+    "http://127.0.0.1:8000/api/v1/contracts/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -2374,6 +4162,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-contracts--uuid-"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
@@ -2412,1526 +4212,86 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                <h1 id="properties">Properties</h1>
+                <h1 id="business-logic">Business Logic</h1>
 
     
 
-                                <h2 id="properties-POSTapi-v1-properties">Create a new property.</h2>
+                                <h2 id="business-logic-GETapi-v1-users--uuid--financial-summary">Get the financial summary for a user.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Creates a property and automatically assigns it to the authenticated user as owner.</p>
+<p>Returns a property-by-property financial breakdown for the given user,
+plus top-level aggregated totals. Only active and finalized contracts are
+included — draft contracts are excluded because they represent future
+intent rather than real income.</p>
+<p>Admins can request the summary of any user.
+Regular users can only request their own summary.</p>
 
-<span id="example-requests-POSTapi-v1-properties">
+<span id="example-requests-GETapi-v1-users--uuid--financial-summary">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/properties" \
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://127.0.0.1:8000/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e/financial-summary" \
+    --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"address\": \"Carrer de Balmes, 100\",
-    \"city\": \"Barcelona\",
-    \"postal_code\": \"08008\",
-    \"province\": \"Barcelona\",
-    \"cadastral_reference\": \"9876543ZX9876T0001TT\",
-    \"surface_area\": 85.5,
-    \"bedrooms\": 3,
-    \"bathrooms\": 2,
-    \"description\": \"Hermoso Piso en Eixample\",
-    \"energy_certificate_rating\": \"C\",
-    \"energy_certificate_number\": \"TT98765432\",
-    \"energy_certificate_expiry\": \"2030-01-01\",
-    \"habitability_certificate_number\": \"CHB34567891011\",
-    \"habitability_certificate_expiry\": \"2030-06-01\",
-    \"last_rent_amount\": 1200,
-    \"ibi_annual_amount\": 450,
-    \"community_fees_monthly\": 80,
-    \"garbage_fees_annual\": 120
-}"
-</code></pre></div>
+    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/properties"
+    "http://127.0.0.1:8000/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e/financial-summary"
 );
 
 const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
-let body = {
-    "address": "Carrer de Balmes, 100",
-    "city": "Barcelona",
-    "postal_code": "08008",
-    "province": "Barcelona",
-    "cadastral_reference": "9876543ZX9876T0001TT",
-    "surface_area": 85.5,
-    "bedrooms": 3,
-    "bathrooms": 2,
-    "description": "Hermoso Piso en Eixample",
-    "energy_certificate_rating": "C",
-    "energy_certificate_number": "TT98765432",
-    "energy_certificate_expiry": "2030-01-01",
-    "habitability_certificate_number": "CHB34567891011",
-    "habitability_certificate_expiry": "2030-06-01",
-    "last_rent_amount": 1200,
-    "ibi_annual_amount": 450,
-    "community_fees_monthly": 80,
-    "garbage_fees_annual": 120
-};
-
 fetch(url, {
-    method: "POST",
+    method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-v1-properties">
+<span id="example-responses-GETapi-v1-users--uuid--financial-summary">
             <blockquote>
-            <p>Example response (201, success):</p>
+            <p>Example response (200, success):</p>
         </blockquote>
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: &quot;uuid-here&quot;,
-        &quot;city&quot;: &quot;Barcelona&quot;,
-        &quot;owner_id&quot;: &quot;owner-uuid&quot;
-    }
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (401, unauthenticated):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (422, validation error):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The cadastral reference field must be 20 characters.&quot;,
-    &quot;errors&quot;: {
-        &quot;cadastral_reference&quot;: [
-            &quot;The cadastral reference field must be 20 characters.&quot;
+        &quot;total_properties&quot;: 2,
+        &quot;total_monthly_income&quot;: &quot;2500.00&quot;,
+        &quot;total_expected_annual_income&quot;: &quot;30000.00&quot;,
+        &quot;total_deposits_held&quot;: &quot;4250.00&quot;,
+        &quot;contracts_expiring&quot;: 1,
+        &quot;properties&quot;: [
+            {
+                &quot;property_id&quot;: &quot;uuid&quot;,
+                &quot;property_address&quot;: &quot;Carrer de Balmes, 100&quot;,
+                &quot;last_rent_amount&quot;: &quot;1000.00&quot;,
+                &quot;monthly_rent&quot;: &quot;1200.00&quot;,
+                &quot;total_deposits_held&quot;: &quot;1200.00&quot;,
+                &quot;total_annual_costs&quot;: &quot;1080.00&quot;,
+                &quot;expected_annual_income&quot;: &quot;14400.00&quot;,
+                &quot;total_income_to_date&quot;: &quot;3600.00&quot;,
+                &quot;profit_to_date&quot;: &quot;3330.00&quot;,
+                &quot;contract_status&quot;: &quot;active&quot;,
+                &quot;contract_end_date&quot;: &quot;2027-03-01&quot;,
+                &quot;expiring&quot;: false,
+                &quot;days_until_expiry&quot;: 365
+            }
         ]
     }
 }</code>
  </pre>
-    </span>
-<span id="execution-results-POSTapi-v1-properties" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-properties"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-properties"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-properties" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-properties">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-v1-properties" data-method="POST"
-      data-path="api/v1/properties"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-properties', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-properties"
-                    onclick="tryItOut('POSTapi-v1-properties');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-properties"
-                    onclick="cancelTryOut('POSTapi-v1-properties');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-properties"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/properties</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-v1-properties"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-v1-properties"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="address"                data-endpoint="POSTapi-v1-properties"
-               value="Carrer de Balmes, 100"
-               data-component="body">
-    <br>
-<p>Street address. Max 250 characters. Example: <code>Carrer de Balmes, 100</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="city"                data-endpoint="POSTapi-v1-properties"
-               value="Barcelona"
-               data-component="body">
-    <br>
-<p>City. Max 100 characters. Example: <code>Barcelona</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>postal_code</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="postal_code"                data-endpoint="POSTapi-v1-properties"
-               value="08008"
-               data-component="body">
-    <br>
-<p>Postal code. Max 10 characters. Example: <code>08008</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>province</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="province"                data-endpoint="POSTapi-v1-properties"
-               value="Barcelona"
-               data-component="body">
-    <br>
-<p>Province. Max 100 characters. Example: <code>Barcelona</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>cadastral_reference</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="cadastral_reference"                data-endpoint="POSTapi-v1-properties"
-               value="9876543ZX9876T0001TT"
-               data-component="body">
-    <br>
-<p>Spanish cadastral reference. Exactly 20 alphanumeric characters, must be unique. Example: <code>9876543ZX9876T0001TT</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>surface_area</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="surface_area"                data-endpoint="POSTapi-v1-properties"
-               value="85.5"
-               data-component="body">
-    <br>
-<p>Surface area in m². Between 10 and 9999.99. Example: <code>85.5</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>bedrooms</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="bedrooms"                data-endpoint="POSTapi-v1-properties"
-               value="3"
-               data-component="body">
-    <br>
-<p>Number of bedrooms. Between 0 and 255. Example: <code>3</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>bathrooms</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="bathrooms"                data-endpoint="POSTapi-v1-properties"
-               value="2"
-               data-component="body">
-    <br>
-<p>Number of bathrooms. Between 0 and 255. Example: <code>2</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="description"                data-endpoint="POSTapi-v1-properties"
-               value="Hermoso Piso en Eixample"
-               data-component="body">
-    <br>
-<p>optional Property description. Max 1000 characters. Example: <code>Hermoso Piso en Eixample</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>energy_certificate_rating</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="energy_certificate_rating"                data-endpoint="POSTapi-v1-properties"
-               value="C"
-               data-component="body">
-    <br>
-<p>Energy rating (A–G). Example: <code>C</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>energy_certificate_number</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="energy_certificate_number"                data-endpoint="POSTapi-v1-properties"
-               value="TT98765432"
-               data-component="body">
-    <br>
-<p>Alphanumeric certificate number. Max 50 characters. Example: <code>TT98765432</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>energy_certificate_expiry</code></b>&nbsp;&nbsp;
-<small>date</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="energy_certificate_expiry"                data-endpoint="POSTapi-v1-properties"
-               value="2030-01-01"
-               data-component="body">
-    <br>
-<p>Expiry date, must be after today (Y-m-d). Example: <code>2030-01-01</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>habitability_certificate_number</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="habitability_certificate_number"                data-endpoint="POSTapi-v1-properties"
-               value="CHB34567891011"
-               data-component="body">
-    <br>
-<p>Alphanumeric certificate number. Max 50 characters. Example: <code>CHB34567891011</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>habitability_certificate_expiry</code></b>&nbsp;&nbsp;
-<small>date</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="habitability_certificate_expiry"                data-endpoint="POSTapi-v1-properties"
-               value="2030-06-01"
-               data-component="body">
-    <br>
-<p>Expiry date, must be after today (Y-m-d). Example: <code>2030-06-01</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>last_rent_amount</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="last_rent_amount"                data-endpoint="POSTapi-v1-properties"
-               value="1200"
-               data-component="body">
-    <br>
-<p>optional Last rent amount in €. Max 999999.99. Example: <code>1200</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>ibi_annual_amount</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="ibi_annual_amount"                data-endpoint="POSTapi-v1-properties"
-               value="450"
-               data-component="body">
-    <br>
-<p>optional Annual IBI in €. Max 999999.99. Example: <code>450</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>community_fees_monthly</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="community_fees_monthly"                data-endpoint="POSTapi-v1-properties"
-               value="80"
-               data-component="body">
-    <br>
-<p>optional Monthly community fees in €. Max 999999.99. Example: <code>80</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>garbage_fees_annual</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="garbage_fees_annual"                data-endpoint="POSTapi-v1-properties"
-               value="120"
-               data-component="body">
-    <br>
-<p>optional Annual garbage fees in €. Max 999999.99. Example: <code>120</code></p>
-        </div>
-        </form>
-
-                    <h2 id="properties-GETapi-v1-properties">List all properties.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Returns all properties for admins. Regular users only see their own properties.</p>
-
-<span id="example-requests-GETapi-v1-properties">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/properties" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/properties"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-properties">
-            <blockquote>
-            <p>Example response (200, admin success):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: &quot;uuid-here&quot;,
-            &quot;owner_id&quot;: &quot;owner-uuid&quot;,
-            &quot;address&quot;: &quot;Carrer de Balmes, 100&quot;,
-            &quot;city&quot;: &quot;Barcelona&quot;,
-            &quot;bedrooms&quot;: 3,
-            &quot;bathrooms&quot;: 2
-        }
-    ]
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (401, unauthenticated):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-properties" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-properties"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-properties"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-properties" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-properties">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-properties" data-method="GET"
-      data-path="api/v1/properties"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-properties', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-properties"
-                    onclick="tryItOut('GETapi-v1-properties');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-properties"
-                    onclick="cancelTryOut('GETapi-v1-properties');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-properties"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/properties</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-properties"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-properties"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="properties-GETapi-v1-properties--uuid-">Show a specific property.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Admins can view any property. Regular users can only view their own properties.</p>
-
-<span id="example-requests-GETapi-v1-properties--uuid-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-properties--uuid-">
-            <blockquote>
-            <p>Example response (200, success):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: &quot;uuid-here&quot;,
-        &quot;city&quot;: &quot;Barcelona&quot;
-    }
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (401, unauthenticated):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (403, forbidden):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Forbidden&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404, not found):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Property not found&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-properties--uuid-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-properties--uuid-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-properties--uuid-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-properties--uuid-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-properties--uuid-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-properties--uuid-" data-method="GET"
-      data-path="api/v1/properties/{uuid}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-properties--uuid-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-properties--uuid-"
-                    onclick="tryItOut('GETapi-v1-properties--uuid-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-properties--uuid-"
-                    onclick="cancelTryOut('GETapi-v1-properties--uuid-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-properties--uuid-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/properties/{uuid}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-properties--uuid-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-properties--uuid-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="uuid"                data-endpoint="GETapi-v1-properties--uuid-"
-               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-               data-component="url">
-    <br>
-<p>The UUID of the property. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="properties-PUTapi-v1-properties--uuid-">Update a property.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Full update (PUT) of a property. Admins can update any property.
-Regular users can only update their own properties.</p>
-
-<span id="example-requests-PUTapi-v1-properties--uuid-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"address\": \"Carrer de Balmes, 100\",
-    \"city\": \"Girona\",
-    \"postal_code\": \"17001\",
-    \"province\": \"Girona\",
-    \"cadastral_reference\": \"9876543ZX9876T0001TT\",
-    \"surface_area\": 85.5,
-    \"bedrooms\": 3,
-    \"bathrooms\": 2,
-    \"description\": \"Renovated flat\",
-    \"energy_certificate_rating\": \"B\",
-    \"energy_certificate_number\": \"TT98765432\",
-    \"energy_certificate_expiry\": \"2031-01-01\",
-    \"habitability_certificate_number\": \"CHB34567891011\",
-    \"habitability_certificate_expiry\": \"2031-06-01\",
-    \"last_rent_amount\": 1400,
-    \"ibi_annual_amount\": 500,
-    \"community_fees_monthly\": 90,
-    \"garbage_fees_annual\": 130
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "address": "Carrer de Balmes, 100",
-    "city": "Girona",
-    "postal_code": "17001",
-    "province": "Girona",
-    "cadastral_reference": "9876543ZX9876T0001TT",
-    "surface_area": 85.5,
-    "bedrooms": 3,
-    "bathrooms": 2,
-    "description": "Renovated flat",
-    "energy_certificate_rating": "B",
-    "energy_certificate_number": "TT98765432",
-    "energy_certificate_expiry": "2031-01-01",
-    "habitability_certificate_number": "CHB34567891011",
-    "habitability_certificate_expiry": "2031-06-01",
-    "last_rent_amount": 1400,
-    "ibi_annual_amount": 500,
-    "community_fees_monthly": 90,
-    "garbage_fees_annual": 130
-};
-
-fetch(url, {
-    method: "PUT",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PUTapi-v1-properties--uuid-">
-            <blockquote>
-            <p>Example response (200, success):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: &quot;uuid-here&quot;,
-        &quot;city&quot;: &quot;Girona&quot;
-    }
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (401, unauthenticated):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (403, forbidden):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Forbidden&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404, not found):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Property not found&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-PUTapi-v1-properties--uuid-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PUTapi-v1-properties--uuid-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-v1-properties--uuid-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PUTapi-v1-properties--uuid-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-v1-properties--uuid-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PUTapi-v1-properties--uuid-" data-method="PUT"
-      data-path="api/v1/properties/{uuid}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-properties--uuid-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-v1-properties--uuid-"
-                    onclick="tryItOut('PUTapi-v1-properties--uuid-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-v1-properties--uuid-"
-                    onclick="cancelTryOut('PUTapi-v1-properties--uuid-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-v1-properties--uuid-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/v1/properties/{uuid}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="uuid"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-               data-component="url">
-    <br>
-<p>The UUID of the property. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="address"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="Carrer de Balmes, 100"
-               data-component="body">
-    <br>
-<p>Street address. Max 250 characters. Example: <code>Carrer de Balmes, 100</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="city"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="Girona"
-               data-component="body">
-    <br>
-<p>City. Max 100 characters. Example: <code>Girona</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>postal_code</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="postal_code"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="17001"
-               data-component="body">
-    <br>
-<p>Postal code. Max 10 characters. Example: <code>17001</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>province</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="province"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="Girona"
-               data-component="body">
-    <br>
-<p>Province. Max 100 characters. Example: <code>Girona</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>cadastral_reference</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="cadastral_reference"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="9876543ZX9876T0001TT"
-               data-component="body">
-    <br>
-<p>Exactly 20 alphanumeric characters. Example: <code>9876543ZX9876T0001TT</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>surface_area</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="surface_area"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="85.5"
-               data-component="body">
-    <br>
-<p>Surface area in m². Between 10 and 9999.99. Example: <code>85.5</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>bedrooms</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="bedrooms"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="3"
-               data-component="body">
-    <br>
-<p>Number of bedrooms. Between 0 and 255. Example: <code>3</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>bathrooms</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="bathrooms"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="2"
-               data-component="body">
-    <br>
-<p>Number of bathrooms. Between 0 and 255. Example: <code>2</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="description"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="Renovated flat"
-               data-component="body">
-    <br>
-<p>optional Property description. Max 1000 characters. Example: <code>Renovated flat</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>energy_certificate_rating</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="energy_certificate_rating"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="B"
-               data-component="body">
-    <br>
-<p>Energy rating (A–G). Example: <code>B</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>energy_certificate_number</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="energy_certificate_number"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="TT98765432"
-               data-component="body">
-    <br>
-<p>Alphanumeric certificate number. Max 50 characters. Example: <code>TT98765432</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>energy_certificate_expiry</code></b>&nbsp;&nbsp;
-<small>date</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="energy_certificate_expiry"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="2031-01-01"
-               data-component="body">
-    <br>
-<p>Expiry date (Y-m-d). Example: <code>2031-01-01</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>habitability_certificate_number</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="habitability_certificate_number"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="CHB34567891011"
-               data-component="body">
-    <br>
-<p>Alphanumeric certificate number. Max 50 characters. Example: <code>CHB34567891011</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>habitability_certificate_expiry</code></b>&nbsp;&nbsp;
-<small>date</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="habitability_certificate_expiry"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="2031-06-01"
-               data-component="body">
-    <br>
-<p>Expiry date (Y-m-d). Example: <code>2031-06-01</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>last_rent_amount</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="last_rent_amount"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="1400"
-               data-component="body">
-    <br>
-<p>optional Last rent amount in €. Max 999999.99. Example: <code>1400</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>ibi_annual_amount</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="ibi_annual_amount"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="500"
-               data-component="body">
-    <br>
-<p>optional Annual IBI in €. Max 999999.99. Example: <code>500</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>community_fees_monthly</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="community_fees_monthly"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="90"
-               data-component="body">
-    <br>
-<p>optional Monthly community fees in €. Max 999999.99. Example: <code>90</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>garbage_fees_annual</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="garbage_fees_annual"                data-endpoint="PUTapi-v1-properties--uuid-"
-               value="130"
-               data-component="body">
-    <br>
-<p>optional Annual garbage fees in €. Max 999999.99. Example: <code>130</code></p>
-        </div>
-        </form>
-
-                    <h2 id="properties-DELETEapi-v1-properties--uuid-">Delete a property (soft delete).</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Soft deletes a property. Fails if the property has active contracts.
-Admins can delete any property. Regular users can only delete their own properties.</p>
-
-<span id="example-requests-DELETEapi-v1-properties--uuid-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/properties/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-properties--uuid-">
-            <blockquote>
-            <p>Example response (204, success):</p>
-        </blockquote>
-                <pre>
-<code>Empty response</code>
- </pre>
-            <blockquote>
-            <p>Example response (401, unauthenticated):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (403, forbidden):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Forbidden&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404, not found):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Property not found&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (409, has contracts):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Cannot delete property with 2 active contracts. Please delete them first.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-DELETEapi-v1-properties--uuid-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-properties--uuid-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-properties--uuid-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-properties--uuid-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-properties--uuid-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-v1-properties--uuid-" data-method="DELETE"
-      data-path="api/v1/properties/{uuid}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-properties--uuid-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-properties--uuid-"
-                    onclick="tryItOut('DELETEapi-v1-properties--uuid-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-properties--uuid-"
-                    onclick="cancelTryOut('DELETEapi-v1-properties--uuid-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-properties--uuid-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/properties/{uuid}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-properties--uuid-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-properties--uuid-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="uuid"                data-endpoint="DELETEapi-v1-properties--uuid-"
-               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-               data-component="url">
-    <br>
-<p>The UUID of the property. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
-            </div>
-                    </form>
-
-                <h1 id="users">Users</h1>
-
-    
-
-                                <h2 id="users-GETapi-v1-users">List all users.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Returns a list of all registered users. Only accessible by admins.</p>
-
-<span id="example-requests-GETapi-v1-users">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/users" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-users">
-            <blockquote>
-            <p>Example response (200, success):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: &quot;uuid-here&quot;,
-            &quot;name&quot;: &quot;Joan Puig&quot;,
-            &quot;email&quot;: &quot;joan@rentoo.com&quot;,
-            &quot;dni&quot;: &quot;12345678A&quot;,
-            &quot;phone&quot;: &quot;600111222&quot;,
-            &quot;city&quot;: &quot;Barcelona&quot;,
-            &quot;province&quot;: &quot;Barcelona&quot;,
-            &quot;roles&quot;: [
-                &quot;User&quot;
-            ],
-            &quot;created_at&quot;: &quot;2026-02-20T10:00:00.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-02-20T10:00:00.000000Z&quot;
-        }
-    ]
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (401, unauthenticated):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (403, forbidden):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Forbidden&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-users" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-users"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-users"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-users" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-users">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-v1-users" data-method="GET"
-      data-path="api/v1/users"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users"
-                    onclick="tryItOut('GETapi-v1-users');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users"
-                    onclick="cancelTryOut('GETapi-v1-users');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/users</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-users"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-users"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="users-GETapi-v1-users--uuid-">Show a specific user.</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Returns the details of a user. Admins can view any user.
-Regular users can only view their own profile.</p>
-
-<span id="example-requests-GETapi-v1-users--uuid-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-users--uuid-">
-            <blockquote>
-            <p>Example response (200, success):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: &quot;uuid-here&quot;,
-        &quot;name&quot;: &quot;Joan Puig&quot;,
-        &quot;email&quot;: &quot;joan@rentoo.com&quot;,
-        &quot;dni&quot;: &quot;12345678A&quot;,
-        &quot;phone&quot;: &quot;600111222&quot;,
-        &quot;city&quot;: &quot;Barcelona&quot;,
-        &quot;province&quot;: &quot;Barcelona&quot;,
-        &quot;roles&quot;: [
-            &quot;User&quot;
-        ],
-        &quot;created_at&quot;: &quot;2026-02-20T10:00:00.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-02-20T10:00:00.000000Z&quot;
-    }
-}</code>
- </pre>
             <blockquote>
             <p>Example response (401, unauthenticated):</p>
         </blockquote>
@@ -3960,43 +4320,43 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-v1-users--uuid-" hidden>
+<span id="execution-results-GETapi-v1-users--uuid--financial-summary" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-users--uuid-"></span>:
+                id="execution-response-status-GETapi-v1-users--uuid--financial-summary"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-users--uuid-"
+    <pre class="json"><code id="execution-response-content-GETapi-v1-users--uuid--financial-summary"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-v1-users--uuid-" hidden>
+<span id="execution-error-GETapi-v1-users--uuid--financial-summary" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-users--uuid-">
+    <pre><code id="execution-error-message-GETapi-v1-users--uuid--financial-summary">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-v1-users--uuid-" data-method="GET"
-      data-path="api/v1/users/{uuid}"
+<form id="form-GETapi-v1-users--uuid--financial-summary" data-method="GET"
+      data-path="api/v1/users/{uuid}/financial-summary"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--uuid-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-users--uuid--financial-summary', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-users--uuid-"
-                    onclick="tryItOut('GETapi-v1-users--uuid-');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-users--uuid--financial-summary"
+                    onclick="tryItOut('GETapi-v1-users--uuid--financial-summary');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-users--uuid-"
-                    onclick="cancelTryOut('GETapi-v1-users--uuid-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-users--uuid--financial-summary"
+                    onclick="cancelTryOut('GETapi-v1-users--uuid--financial-summary');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-users--uuid-"
+                    id="btn-executetryout-GETapi-v1-users--uuid--financial-summary"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -4004,16 +4364,28 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/v1/users/{uuid}</code></b>
+            <b><code>api/v1/users/{uuid}/financial-summary</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-users--uuid--financial-summary"
+               value="Bearer {YOUR_AUTH_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_TOKEN}</code></p>
+            </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
 &nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-v1-users--uuid-"
+                              name="Content-Type"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
                value="application/json"
                data-component="header">
     <br>
@@ -4025,7 +4397,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-v1-users--uuid-"
+                              name="Accept"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
                value="application/json"
                data-component="header">
     <br>
@@ -4038,166 +4410,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="uuid"                data-endpoint="GETapi-v1-users--uuid-"
-               value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-               data-component="url">
-    <br>
-<p>The UUID of the user. Example: <code>9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="users-DELETEapi-v1-users--uuid-">Delete a user (soft delete).</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Soft deletes a user account. The record is preserved in the database
-with a deleted_at timestamp but will no longer appear in normal queries.
-Admins can delete any user. Regular users can only delete their own account.</p>
-
-<span id="example-requests-DELETEapi-v1-users--uuid-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-users--uuid-">
-            <blockquote>
-            <p>Example response (204, success):</p>
-        </blockquote>
-                <pre>
-<code>Empty response</code>
- </pre>
-            <blockquote>
-            <p>Example response (401, unauthenticated):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (403, forbidden):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Forbidden&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404, not found):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;User not found&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-DELETEapi-v1-users--uuid-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-users--uuid-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-users--uuid-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-users--uuid-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-users--uuid-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-v1-users--uuid-" data-method="DELETE"
-      data-path="api/v1/users/{uuid}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-users--uuid-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-users--uuid-"
-                    onclick="tryItOut('DELETEapi-v1-users--uuid-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-users--uuid-"
-                    onclick="cancelTryOut('DELETEapi-v1-users--uuid-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-users--uuid-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/users/{uuid}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-v1-users--uuid-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-v1-users--uuid-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>uuid</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="uuid"                data-endpoint="DELETEapi-v1-users--uuid-"
+                              name="uuid"                data-endpoint="GETapi-v1-users--uuid--financial-summary"
                value="9d4e7c8b-a5f2-4e1d-8c3b-2f7e4a9d1c5e"
                data-component="url">
     <br>

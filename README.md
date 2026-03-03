@@ -18,29 +18,60 @@ The system tracks:
 - Rental contracts with dual tenant support and IRPA compliance
 
 The project has been developed as an **academic project** for the Barcelona Activa Fullstack PHP bootcamp, with emphasis on:
-- MVC architecture
-- Database relational design
+- REST API design
+- TDD with Pest
+- OAuth2 authentication
 - Spanish legal compliance (LAU, IRPA, energy certificates)
 - Professional Git workflow with GitFlow
 
 ---
 
 ## Features
-- to be considered
 
 ### Property Owner Management
-- to be considered
+- Complete CRUD operations via REST API endpoints
+- DNI/NIE/TIE validation with Spanish regex patterns
+- Contact and address information management
+- Role-based access: admins manage all owners, users manage only their own profile
 
 ### Property Management
-- to be considered
+- Complete CRUD operations for rental properties
+- Automatic owner assignment from authenticated user
+- Cadastral reference validation (20-character alphanumeric format)
+- Energy certificate tracking (A–G rating) and habitability certificate tracking
+- Financial fields: IBI, community fees, garbage fees, last rent amount
+- Soft deletes: properties with active contracts cannot be deleted
 
 ### Contract Management
-- to be considered
+- Complete CRUD operations for rental contracts
+- Dual tenant support (Tenant 1 required, Tenant 2 optional)
+- DNI/NIE validation for all tenants
+- Three contract statuses: `draft`, `active`, `finalized`
+- Financial fields: monthly rent, legal deposit, additional deposit
+- IRPA zone classification (tensioned / non-tensioned areas)
+- Soft deletes with full audit trail retained in database
+
+### Financial Summary
+- Per-property financial breakdown for each owner
+- Calculates monthly income, annual income, and deposits held
+- Identifies contracts expiring within 90 days
+- Distinguishes active income from historical (finalized) contract data
+- Draft contracts excluded — only real income is reported
 
 ---
 
 ## Application Flow
-- to be considered
+
+The typical sequence of API calls for a property owner:
+
+1. **Register** → `POST /api/v1/register` → receive OAuth2 access token
+2. **Add properties** → `POST /api/v1/properties` → property assigned to authenticated owner
+3. **Create a contract** → `POST /api/v1/contracts` with `status: draft`
+4. **Activate the contract** when tenancy begins → `PUT /api/v1/contracts/{uuid}` with `status: active`
+5. **Monitor portfolio** → `GET /api/v1/users/{uuid}/financial-summary`
+6. **Finalize the contract** when tenancy ends → `PUT /api/v1/contracts/{uuid}` with `status: finalized`
+
+Admins can perform all of the above for any user in the system.
 
 ---
 
@@ -61,7 +92,6 @@ The project has been developed as an **academic project** for the Barcelona Acti
 - PHP 8.5+
 - Composer 2.8+
 - MariaDB 10.4+ (XAMPP recommended for local development)
-- Node.js 22+ / NPM 10+
 - Postman (for manual API testing)
 
 ---
@@ -95,28 +125,79 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-> **Note:** This API connects to the existing `rentoo` MariaDB database from the companion MVC project. The database must exist and contain the `owners`, `properties`, and `contracts` tables before running the API.
+The database name is set by `DB_DATABASE` in your `.env` file. You must create this database manually before running migrations — Laravel migrations only create tables inside an existing database, they do not create the database itself.
+
+Using MySQL Workbench or the XAMPP shell:
+```sql
+CREATE DATABASE rentoo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
 
 ### 4. Run database migrations
 ```bash
 php artisan migrate
 ```
 
-### 5. Seed roles, permissions, and test users
+### 4b. Configure the testing environment
+Create a `.env.testing` file in the project root (alongside `.env`):
+```bash
+touch .env.testing   # or create the file manually in VS Code
+```
+
+Add the following content:
+```env
+APP_NAME=RentooAPI
+APP_ENV=testing
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+DB_CONNECTION=sqlite
+DB_DATABASE=:memory:
+
+CACHE_STORE=array
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=array
+```
+Key points:
+- `DB_CONNECTION=sqlite` and `DB_DATABASE=:memory:` tell Pest to use an in-memory SQLite database — XAMPP does not need to be running for tests
+- `APP_KEY` can be left empty for testing
+- `CACHE_STORE`, `QUEUE_CONNECTION`, and `SESSION_DRIVER` prevent tests from touching Redis, real queues, or file-based sessions
+
+### 5. Seed roles, permissions, and sample data
 ```bash
 php artisan db:seed
 ```
 
-This creates:
-- Roles: `Admin`, `User`(named as 'Owner')
-- Test users: `admin@rentoo.com`, `owner1@rentoo.com`, `owner2@rentoo.com`
-- Default password for all seeded users: `password`
+This runs four seeders in order:
+
+| Seeder | What it creates |
+|--------|-----------------|
+| `RolesAndPermissionsSeeder` | `Admin` and `User` roles |
+| `UserSeeder` | 3 fixed test accounts (see below) |
+| `SampleDataSeeder` | Sample properties and contracts for the owner accounts |
+
+**Test accounts created:**
+
+| Email | Password | Role |
+|-------|----------|------|
+| `admin@rentoo.com` | `password` | Admin |
+| `owner1@rentoo.com` | `password` | User |
+| `owner2@rentoo.com` | `password` | User |
+
+**Sample data created:**
+- `owner1` — 2 properties: one with an active contract (6 months in), one with a finalized contract (ended yesterday)
+- `owner2` — 1 property with an active contract expiring within 45 days (demonstrates the `expiring: true` flag in the financial summary endpoint)
+
+The seeder is safe to re-run — `UserSeeder` uses `updateOrCreate` and `SampleDataSeeder` checks `properties()->count()` before inserting, so no duplicate data is created.
 
 ### 6. Install Passport keys
 ```bash
-php artisan passport:keys
-php artisan passport:client --personal --name="Rentoo Personal Access Client"
+php artisan passport:install
 ```
+
+This generates the RSA encryption keys and creates the required OAuth clients in the database in a single step. It creates:
+- Two files in `storage/`: `oauth-private.key` and `oauth-public.key` — the key pair Passport uses to sign and verify Bearer tokens. Without these, Passport cannot issue or validate any token.
+- One row in the `oauth_clients` table — the "personal access client" that your application uses when calling `$user->createToken()`. Passport requires this client record to exist before it can issue tokens.
 
 ### 7. Start the development server
 ```bash
@@ -127,19 +208,24 @@ php artisan serve
 
 ## API Documentation
 
-Full interactive documentation available at `/docs` once the server is running:
+Interactive documentation is available at `/docs` when the server is running:
 ```bash
-php artisan scribe:generate   # Regenerate docs
 php artisan serve
-# Visit: http://localhost:8000/docs
+# Visit: http://127.0.0.1:8000/docs
 ```
+
+The docs are generated by Scribe from PHPDoc annotations in the controller files. To regenerate after making changes to any controller:
+```bash
+php artisan scribe:generate
+```
+
 ---
 
 ## API Endpoints
 
-Base URL: `http://localhost:8000/api/v1`
+Base URL: `http://127.0.0.1:8000/api/v1`
 
-Full interactive documentation available at: `http://localhost:8000/docs`
+Full interactive documentation available at: `http://127.0.0.1:8000/docs`
 
 ### Authentication
 | Method | Endpoint | Description | Auth Required |
@@ -176,7 +262,7 @@ Full interactive documentation available at: `http://localhost:8000/docs`
 | GET | `/api/v1/contracts/{uuid}` | Show contract details | Admin (any) / User (own property) |
 | PUT | `/api/v1/contracts/{uuid}` | Full update of a contract | Admin (any) / User (own property) |
 | DELETE | `/api/v1/contracts/{uuid}` | Soft delete a contract | Admin (any) / User (own property) |
-<
+
 > <sup>*Contract ownership is nested: a user can only access contracts that belong to properties they own.*</sup>
 
 ### Business Logic
@@ -197,32 +283,6 @@ Full interactive documentation available at: `http://localhost:8000/docs`
 
 ---
 
-## Running Tests
-```bash
-# Run full test suite
-./vendor/bin/pest
-
-# Run specific test file
-./vendor/bin/pest tests/Feature/Auth/AuthTest.php
-./vendor/bin/pest tests/Feature/User/UserTest.php
-./vendor/bin/pest tests/Feature/User/PropertyTest.php
-./vendor/bin/pest tests/Feature/User/ContractTest.php
-./vendor/bin/pest tests/Feature/FinancialSummary/FinancialSummaryTest.php
-
-```
-
-Tests use an **SQLite in-memory database** (configured in `.env.testing`) — no impact on the real MariaDB data.
-
----
-
-## Project Structure
-```
-TO BE CREATED
-
-```
-
----
-
 ## Authentication Flow
 
 This API uses **OAuth2 Bearer Token** authentication via Laravel Passport.
@@ -236,7 +296,7 @@ This API uses **OAuth2 Bearer Token** authentication via Laravel Passport.
 
 **Register a new user:**
 ```bash
-curl -X POST http://localhost:8000/api/v1/register \
+curl -X POST http://127.0.0.1:8000/api/v1/register \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{
@@ -255,28 +315,28 @@ curl -X POST http://localhost:8000/api/v1/register \
 
 **Login with existing user:**
 ```bash
-curl -X POST http://localhost:8000/api/v1/login \
+curl -X POST http://127.0.0.1:8000/api/v1/login \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
-  -d '{"email": "admin@example", "password": "password"}'
+  -d '{"email": "admin@rentoo.com", "password": "password"}'
 ```
 
 Response includes your access token:
 ```json
 {
-  "data": {"id": "uuid", "name": "Admin Rentoo", "email": "admin@example"},
+  "data": {"id": "uuid", "name": "Admin Rentoo", "email": "admin@rentoo.com"},
   "token": "eyJ0eXAiOiJKV1Qi..."
 }
 ```
 
 **Use the token in subsequent requests:**
 ```bash
-curl -X POST http://localhost:8000/api/v1/logout \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1Qi..."
+curl -X POST http://127.0.0.1:8000/api/v1/logout \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1Qi..." \
   -H "Accept: application/json"
 ```
 
----
+> **Important:** Always include `Accept: application/json` in all requests. Without it, Laravel returns an HTML error page instead of a JSON response for 4xx errors.
 
 ### Testing with Postman
 
@@ -285,7 +345,7 @@ curl -X POST http://localhost:8000/api/v1/logout \
 
 | Variable | Value |
 |----------|-------|
-| `base_url`     | `http://localhost:8000/api/v1` |
+| `base_url`     | `http://127.0.0.1:8000/api/v1` |
 | `access_token` | *(leave empty — auto-populated on login)* |
 | `admin_token`  | *(populate via Login with admin@rentoo.com)* |
 | `owner1_token` | *(populate via Login with owner1@rentoo.com)* |
@@ -296,7 +356,27 @@ curl -X POST http://localhost:8000/api/v1/logout \
 
 3. Set collection-level Authorization: `Bearer Token` → `{{admin_token}}`
 
-> **Important:** Always include `Accept: application/json` header in all requests, otherwise Laravel returns HTML instead of JSON for error responses.
+---
+
+## Running Tests
+
+Tests use Pest with an SQLite in-memory database. XAMPP does not need to be running to execute the test suite.
+
+Run the full suite:
+```bash
+./vendor/bin/pest
+```
+
+Run a specific file:
+```bash
+./vendor/bin/pest tests/Feature/Auth/AuthTest.php
+./vendor/bin/pest tests/Feature/Users/UserTest.php
+./vendor/bin/pest tests/Feature/Properties/PropertyTest.php
+./vendor/bin/pest tests/Feature/Contracts/ContractTest.php
+./vendor/bin/pest tests/Feature/FinancialSummary/FinancialSummaryTest.php
+```
+
+Expected: ~85 tests passing across all suites
 
 ---
 
@@ -324,7 +404,61 @@ The database follows a **relational design** with three main entities:
   - Dual tenant information (Tenant 1 & Tenant 2)
   - Contract dates (start and end)
   - Financial information (monthly rent, deposit)
-  - Status enum (DRAFT or FINALIZED)
+  - Status enum: `draft`, `active`, `finalized`
+
+---
+
+## Project Structure
+
+```
+app/
+├── Http/
+│   ├── Controllers/
+│   │   └── Api/
+│   │       └── V1/
+│   │           ├── AuthController.php
+│   │           ├── ContractController.php
+│   │           ├── FinancialSummaryController.php
+│   │           ├── PropertyController.php
+│   │           └── UserController.php
+│   └── Resources/
+│       ├── ContractResource.php
+│       ├── FinancialSummaryResource.php
+│       ├── PropertyResource.php
+│       └── UserResource.php
+├── Models/
+│   ├── Contract.php
+│   ├── Property.php
+│   └── User.php
+database/
+├── factories/
+│   ├── ContractFactory.php
+│   ├── PropertyFactory.php
+│   └── UserFactory.php
+├── migrations/
+│   └── *.php
+└── seeders/
+    ├── DatabaseSeeder.php
+    ├── RolesAndPermissionsSeeder.php
+    ├── SampleDataSeeder.php
+    └── UserSeeder.php
+routes/
+└── api.php
+tests/
+└── Feature/
+    ├── Auth/
+    │   └── AuthTest.php
+    ├── Contracts/
+    │   └── ContractTest.php
+    ├── FinancialSummary/
+    │   └── FinancialSummaryTest.php
+    ├── Properties/
+    │   └── PropertyTest.php
+    └── Users/
+        └── UserTest.php
+```
+
+> **Note:** Verify that your actual test folder names match the paths above. If your test files live under `tests/Feature/` with different subfolder names, update the paths in the "Running Tests" section accordingly.
 
 ---
 
@@ -344,4 +478,4 @@ Repository: [https://github.com/fdesouzabcn/rentoo-api](https://github.com/fdeso
 
 ## Acknowledgments
 
-- Barcelona Activa Fullstack PHP Bootcamp  (2025/2026)
+- Barcelona Activa Fullstack PHP Bootcamp (2025/2026)

@@ -33,31 +33,25 @@ class ContractFactory extends Factory
 
             'status' => $status,
 
-            // Contract Dates
             'start_date' => $dates['start_date'],
             'end_date'   => $dates['end_date'],
 
-            // Financial Terms
             'monthly_rent'       => $monthlyRent,
             'legal_deposit'      => $legalDeposit,
             'additional_deposit' => $additionalDeposit,
 
-            // Expense Responsibilities (30% chance paid by tenant)
             'tenant_pays_ibi'            => fake()->boolean(30),
             'tenant_pays_community_fees' => fake()->boolean(30),
             'tenant_pays_garbage_fees'   => fake()->boolean(30),
 
-            // Tensioned Area (50% chance) and IRPA (+5% calculation)
             'is_tensioned_area' => $isTensioned,
             'irpa_value'        => $isTensioned ? round($monthlyRent * 1.05, 2) : null,
 
-            // Tenant 1 (Required)
             'tenant1_name'  => fake()->name(),
             'tenant1_dni'   => $this->generateSpanishDNI(),
             'tenant1_email' => fake()->unique()->safeEmail(),
             'tenant1_phone' => $this->generateSpanishPhone(),
 
-            // Tenant 2 (Optional - 40% chance)
             'tenant2_name'  => $hasTenant2 ? fake()->name() : null,
             'tenant2_dni'   => $hasTenant2 ? $this->generateSpanishDNI() : null,
             'tenant2_email' => $hasTenant2 ? fake()->safeEmail() : null,
@@ -65,9 +59,6 @@ class ContractFactory extends Factory
         ];
     }
 
-    // ─────────────────────────────────────────────
-    // Private helpers
-    // ─────────────────────────────────────────────
 
     private function generateContractDates(string $status): array
     {
@@ -127,7 +118,7 @@ class ContractFactory extends Factory
     }
 
 
-    // Methods for testing specific scenarios
+    // Methods for specific scenarios
 
     public function draft(): static
     {

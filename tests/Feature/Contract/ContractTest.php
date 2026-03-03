@@ -132,7 +132,6 @@ test('create contract fails with non-existent property_id', function (): void {
 // ─────────────────────────────────────────────
 
 test('admin can list all contracts', function (): void {
-    // Arrange
     $admin = User::factory()->create();
     $admin->assignRole('Admin');
 
@@ -145,11 +144,9 @@ test('admin can list all contracts', function (): void {
     Contract::factory()->count(2)->create(['property_id' => $property1->id]);
     Contract::factory()->count(3)->create(['property_id' => $property2->id]);
 
-    // Act
     $response = $this->withHeader('Authorization', 'Bearer ' . $admin->createToken('t')->accessToken)
                      ->getJson('/api/v1/contracts');
 
-    // Assert
     $response->assertStatus(200)
              ->assertJsonCount(5, 'data');
 });
@@ -182,16 +179,13 @@ test('unauthenticated request cannot list contracts', function (): void {
 // ─────────────────────────────────────────────
 
 test('admin can view any contract', function (): void {
-    // Arrange
     $admin    = User::factory()->create();
     $admin->assignRole('Admin');
     $contract = Contract::factory()->create();
 
-    // Act
     $response = $this->withHeader('Authorization', 'Bearer ' . $admin->createToken('t')->accessToken)
                      ->getJson('/api/v1/contracts/' . $contract->id);
 
-    // Assert
     $response->assertStatus(200)
             ->assertJsonPath('data.id', $contract->id);
 });
@@ -242,7 +236,6 @@ test('unauthenticated request cannot view a contract', function (): void {
 // ─────────────────────────────────────────────
 
 test('admin can update any contract', function (): void {
-    // Arrange
     $admin    = User::factory()->create();
     $admin->assignRole('Admin');
     $property = Property::factory()->create();
@@ -251,11 +244,9 @@ test('admin can update any contract', function (): void {
 
     $payload = updateContractPayload($contract, $property->id, ['monthly_rent' => 1500.00]);
 
-    // Act
     $response = $this->withHeader('Authorization', 'Bearer ' . $admin->createToken('t')->accessToken)
                      ->putJson('/api/v1/contracts/' . $contract->id, $payload);
 
-    // Assert
     $response->assertStatus(200)
              ->assertJsonPath('data.monthly_rent', '1500.00');
 });
@@ -309,17 +300,14 @@ test('unauthenticated request cannot update a contract', function (): void {
 // ─────────────────────────────────────────────
 
 test('admin can soft delete any contract', function (): void {
-    // Arrange
     $admin    = User::factory()->create();
     $admin->assignRole('Admin');
 
     $contract = Contract::factory()->create();
 
-    // Act
     $response = $this->withHeader('Authorization', 'Bearer ' . $admin->createToken('t')->accessToken)
                      ->deleteJson('/api/v1/contracts/' . $contract->id);
 
-    // Assert
     $response->assertStatus(204);
     expect(Contract::find($contract->id))->toBeNull();
     expect(Contract::withTrashed()->find($contract->id))->not->toBeNull();
@@ -373,7 +361,6 @@ test('unauthenticated request cannot delete a contract', function (): void {
 // ─────────────────────────────────────────────
 
 // Minimal valid payload for creating a contract.
-
 function contractPayload(string $propertyId): array
 {
     return [
@@ -390,7 +377,6 @@ function contractPayload(string $propertyId): array
 }
 
 // Full payload for updating a contract
-
 function updateContractPayload(Contract $contract, string $propertyId, array $overrides = []): array
 {
     return array_merge([
@@ -407,7 +393,6 @@ function updateContractPayload(Contract $contract, string $propertyId, array $ov
 }
 
 // Expected keys in a contract response.
-
 function contractJsonStructure(): array
 {
     return [
