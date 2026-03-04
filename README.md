@@ -100,7 +100,7 @@ Admins can perform all of the above for any user in the system.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/rentoo-api.git
+git clone https://github.com/fdesouzabcn/rentoo-api.git
 cd rentoo-api
 ```
 
@@ -137,13 +137,10 @@ CREATE DATABASE rentoo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 php artisan migrate
 ```
 
-### 4b. Configure the testing environment
-Create a `.env.testing` file in the project root (alongside `.env`):
-```bash
-touch .env.testing   # or create the file manually in VS Code
-```
+### 5. Review the testing environment
+Review `.env.testing` file in the project root (alongside `.env`):
 
-Add the following content:
+Ensures that the content is as follows:
 ```env
 APP_NAME=RentooAPI
 APP_ENV=testing
@@ -163,7 +160,7 @@ Key points:
 - `APP_KEY` can be left empty for testing
 - `CACHE_STORE`, `QUEUE_CONNECTION`, and `SESSION_DRIVER` prevent tests from touching Redis, real queues, or file-based sessions
 
-### 5. Seed roles, permissions, and sample data
+### 6. Seed roles, permissions, and sample data
 ```bash
 php artisan db:seed
 ```
@@ -190,16 +187,22 @@ This runs four seeders in order:
 
 The seeder is safe to re-run — `UserSeeder` uses `updateOrCreate` and `SampleDataSeeder` checks `properties()->count()` before inserting, so no duplicate data is created.
 
-### 6. Install Passport keys
+### 7. Install Passport keys
 ```bash
-php artisan passport:install
+php artisan passport:keys
+php artisan passport:client --personal
 ```
 
-This generates the RSA encryption keys and creates the required OAuth clients in the database in a single step. It creates:
-- Two files in `storage/`: `oauth-private.key` and `oauth-public.key` — the key pair Passport uses to sign and verify Bearer tokens. Without these, Passport cannot issue or validate any token.
-- One row in the `oauth_clients` table — the "personal access client" that your application uses when calling `$user->createToken()`. Passport requires this client record to exist before it can issue tokens.
+When prompted by `passport:client --personal`:
+- **Client name:** press Enter to accept `RentooAPI`
+- **User provider:** type `0` and press Enter to select `users`
 
-### 7. Start the development server
+> **Why not `php artisan passport:install`?** 
+> That command copies OAuth migration files into your project
+> even though those tables were already created in Step 4 by
+> `php artisan migrate`, resulting in duplicate migration files.
+
+### 8. Start the development server
 ```bash
 php artisan serve
 ```
