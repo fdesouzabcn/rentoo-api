@@ -1,0 +1,639 @@
+{
+  "info": {
+    "_postman_id": "0851b7c4-fca6-49b8-8d36-7abf63efbb7d",
+    "name": "Rentoo API v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52605861"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const response = pm.response.json();\r",
+                  "pm.environment.set(\"access_token\", response.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@rentoo.com\",\r\n    \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//     \"name\": \"New Owner\",\r\n//     \"dni\": \"12345678A\",\r\n//     \"email\": \"newowner@rentoo.com\",\r\n//     \"phone\": \"600111222\",\r\n//     \"address\": \"Carrer de Balmes, 10\",\r\n//     \"city\": \"Barcelona\",\r\n//     \"postal_code\": \"08007\",\r\n//     \"province\": \"Barcelona\",\r\n//     \"password\": \"password\",\r\n//     \"password_confirmation\": \"password\"\r\n// }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "GET List Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Show User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/{{owner2_uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{owner2_uuid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE User (Soft Delete)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/{{owner2_uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{owner2_uuid}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Properties",
+      "item": [
+        {
+          "name": "POST Create Property",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//     \"address\": \"Carrer de Balmes, 120\",\r\n//     \"city\": \"Barcelona\",\r\n//     \"postal_code\": \"08008\",\r\n//     \"province\": \"Barcelona\",\r\n//     \"cadastral_reference\": \"9876543ZX9876T0001TT\",\r\n//     \"surface_area\": 85.50,\r\n//     \"bedrooms\": 3,\r\n//     \"bathrooms\": 2,\r\n//     \"description\": \"Hermoso Piso en Eixample\",\r\n//     \"energy_certificate_rating\": \"C\",\r\n//     \"energy_certificate_number\": \"TT98765432\",\r\n//     \"energy_certificate_expiry\": \"2030-01-01\",\r\n//     \"habitability_certificate_number\": \"CHB34567891011\",\r\n//     \"habitability_certificate_expiry\": \"2030-06-01\",\r\n//     \"last_rent_amount\": 1200.00,\r\n//     \"ibi_annual_amount\": 450.00,\r\n//     \"community_fees_monthly\": 80.00,\r\n//     \"garbage_fees_annual\": 120.00\r\n// }\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/properties",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "properties"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET List Properties",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/properties",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "properties"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Show Property",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/properties/{{owner2_property1_uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "properties",
+                "{{owner2_property1_uuid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Update Property",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"id\": \"019c951c-5110-72b2-89f5-b31822f9ff3b\",\r\n        \"owner_id\": \"019c77fa-fb27-737d-a96a-240753377962\",\r\n        \"address\": \"Carrer de Balmes, 120\",\r\n        \"city\": \"GIRONA\", // -- updated\r\n        \"postal_code\": \"08008\",\r\n        \"province\": \"Barcelona\",\r\n        \"cadastral_reference\": \"9876543ZX9876T0001TT\",\r\n        \"surface_area\": \"85.50\",\r\n        \"bedrooms\": 3,\r\n        \"bathrooms\": 2,\r\n        \"description\": \"UPDATED DESCRIPTION\", // -- updated\r\n        \"energy_certificate_rating\": \"C\",\r\n        \"energy_certificate_number\": \"TT98765432\",\r\n        \"energy_certificate_expiry\": \"2030-01-01\",\r\n        \"habitability_certificate_number\": \"CHB34567891011\",\r\n        \"habitability_certificate_expiry\": \"2030-06-01\",\r\n        \"last_rent_amount\": \"1200.00\",\r\n        \"ibi_annual_amount\": \"450.00\",\r\n        \"community_fees_monthly\": \"80.00\",\r\n        \"garbage_fees_annual\": \"120.00\",\r\n        \"created_at\": \"2026-02-25T14:03:06.000000Z\",\r\n        \"updated_at\": \"2026-02-25T14:03:06.000000Z\"\r\n    }\r\n\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/properties/{{owner1_property1_uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "properties",
+                "{{owner1_property1_uuid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Property (Soft Delete)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/properties/{{owner1_property2_uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "properties",
+                "{{owner1_property2_uuid}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Contracts",
+      "item": [
+        {
+          "name": "POST Create Contract",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"property_id\": \"019cb46b-5027-7035-a611-c7ba82963a63\",\r\n    \"status\": \"draft\",\r\n    \"start_date\": \"2026-04-01\",\r\n    \"monthly_rent\": 1200.00,\r\n    \"legal_deposit\": 1200.00,\r\n    \"tenant1_name\": \"Joan Puigdemon\",\r\n    \"tenant1_dni\": \"12345678A\",\r\n    \"tenant1_email\": \"joan@rentoo.com\",\r\n    \"tenant1_phone\": \"600111222\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/contracts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "contracts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET List Contract",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/contracts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "contracts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET Show Contract",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/contracts/{{owner2_property1_contract_uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "contracts",
+                "{{owner2_property1_contract_uuid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT Update Contract",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//     \"property_id\": \"<addyour property id here>\",\r\n//     \"status\": \"active\",\r\n//     \"start_date\": \"2026-04-01\",\r\n//     \"end_date\": \"2027-04-01\",\r\n//     \"monthly_rent\": 1350.00,\r\n//     \"legal_deposit\": 1350.00,\r\n//     \"tenant1_name\": \"Joan Puigdemon UPDATED\",\r\n//     \"tenant1_dni\": \"12345678A\",\r\n//     \"tenant1_email\": \"joan@rentoo.com\",\r\n//     \"tenant1_phone\": \"600111222\"\r\n// }\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/contracts/{{owner1_property1_contract_uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "contracts",
+                "{{owner1_property1_contract_uuid}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Update Contract",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/contracts/{{owner1_property2_contract_uuid}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "contracts",
+                "{{owner1_property2_contract_uuid}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Business Logic",
+      "item": [
+        {
+          "name": "GET Financial Summary",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/{{owner2_uuid}}/financial-summary",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{owner2_uuid}}",
+                "financial-summary"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{admin_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

@@ -120,9 +120,9 @@ Update `.env` with your database credentials:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=rentoo
-DB_USERNAME=root
-DB_PASSWORD=
+DB_DATABASE=your_db_name
+DB_USERNAME=your_db_username
+DB_PASSWORD=your_db_password
 ```
 
 The database name is set by `DB_DATABASE` in your `.env` file. You must create this database manually before running migrations — Laravel migrations only create tables inside an existing database, they do not create the database itself.
@@ -341,7 +341,11 @@ curl -X POST http://127.0.0.1:8000/api/v1/logout \
 ### Testing with Postman
 
 1. Download [Postman](https://postman.com) and create a free account
-2. Create a new environment called `Rentoo - Local` with these variables:
+2. Create a Workspace
+3. Import `rentoo-api-v1.postman_environment.json`and `rentoo-api-v1.postman_collection.json` into your workspace. 
+4. Set collection-level Authorization: `Bearer Token` → `{{admin_token}}`    
+
+Alternatively to setp 3, you can manually create a `Rentoo - Local` environment with the variables below, then create a `Rentoo API v1`collection and its requests.
 
 | Variable | Value |
 |----------|-------|
@@ -354,7 +358,6 @@ curl -X POST http://127.0.0.1:8000/api/v1/logout \
 | `owner1_uuid`  | *(populate from Login response id field)* |
 | `owner2_uuid`  | *(populate from Login response id field)* |
 
-3. Set collection-level Authorization: `Bearer Token` → `{{admin_token}}`
 
 ---
 
