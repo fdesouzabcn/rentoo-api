@@ -137,10 +137,13 @@ CREATE DATABASE rentoo CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 php artisan migrate
 ```
 
-### 5. Review the testing environment
-Review `.env.testing` file in the project root (alongside `.env`):
+### 5. Create the testing environment file
+Create a `.env.testing` file in the project root (alongside `.env`):
+```bash
+cp .env.example .env.testing
+```
 
-Ensures that the content is as follows:
+Then open `.env.testing` and replace its entire contents with:
 ```env
 APP_NAME=RentooAPI
 APP_ENV=testing
@@ -155,9 +158,17 @@ CACHE_STORE=array
 QUEUE_CONNECTION=sync
 SESSION_DRIVER=array
 ```
+
+Then generate a dedicated application key for the testing environment:
+```bash
+php artisan key:generate --env=testing
+```
+> This writes a fresh `APP_KEY` into `.env.testing` automatically. 
+> The key is required for Passport token encryption during tests.
+
 Key points:
 - `DB_CONNECTION=sqlite` and `DB_DATABASE=:memory:` tell Pest to use an in-memory SQLite database — XAMPP does not need to be running for tests
-- `APP_KEY` can be left empty for testing
+- `APP_KEY` is left empty in the template above — `php artisan key:generate --env=testing` populates it automatically in the next step
 - `CACHE_STORE`, `QUEUE_CONNECTION`, and `SESSION_DRIVER` prevent tests from touching Redis, real queues, or file-based sessions
 
 ### 6. Seed roles, permissions, and sample data
